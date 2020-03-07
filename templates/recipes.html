@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    {% for recipe in recipes %}
+        {{recipe.recipe_name}}
+        {{recipe.recipe_description}}
+        {{recipe.meal_course_type}}
+        {{recipe.cuisine}}
+        {{recipe.is_vegetarian}}
+        {{recipe.is_vegan}}
+        {{recipe.is_glutenFree}}
+        {{recipe.is_dairyFree}}
+        {{recipe.serves}}
+        {{recipe.prep}}
+        {{recipe.cook}}
+        {{recipe.add_ingredients}}
+        {{recipe.method}}
+
+    {% endfor %}
+</body>
+</html>

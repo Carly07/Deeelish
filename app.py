@@ -40,6 +40,28 @@ def edit_recipe(recipe_id):
     return render_template('editrecipe.html', recipe=the_recipe, meals_courses=all_meals_courses, cuisines=all_cuisines)
 
 
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    recipes.update({'_id': ObjectId(recipe_id)},
+    {
+        'add_photo': request.form.get('add_photo'),
+        'recipe_name': request.form.get('recipe_name'),
+        'recipe_description': request.form.get('recipe_description'),
+        'meal_course_type': request.form.get('meal_course_type'),
+        'cuisine': request.form.get('cuisine'),
+        'serves': request.form.get('serves'),
+        'time': request.form.get('time'),
+        'is_vegetarian': request.form.get('is_vegetarian'),
+        'is_vegan': request.form.get('is_vegan'),
+        'is_glutenFree': request.form.get('is_glutenFree'),
+        'is_dairyFree': request.form.get('is_dairyFree'),
+        'add_ingredients': request.form.get('add_ingredients'),
+        'method': request.form.get('method')
+    })
+    return redirect(url_for('get_recipes'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

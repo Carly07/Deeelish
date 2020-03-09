@@ -44,21 +44,27 @@ def edit_recipe(recipe_id):
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
-    {
-        'add_photo': request.form.get('add_photo'),
-        'recipe_name': request.form.get('recipe_name'),
-        'recipe_description': request.form.get('recipe_description'),
-        'meal_course_type': request.form.get('meal_course_type'),
-        'cuisine': request.form.get('cuisine'),
-        'serves': request.form.get('serves'),
-        'time': request.form.get('time'),
-        'is_vegetarian': request.form.get('is_vegetarian'),
-        'is_vegan': request.form.get('is_vegan'),
-        'is_glutenFree': request.form.get('is_glutenFree'),
-        'is_dairyFree': request.form.get('is_dairyFree'),
-        'add_ingredients': request.form.get('add_ingredients'),
-        'method': request.form.get('method')
-    })
+        {
+            'add_photo': request.form.get('add_photo'),
+            'recipe_name': request.form.get('recipe_name'),
+            'recipe_description': request.form.get('recipe_description'),
+            'meal_course_type': request.form.get('meal_course_type'),
+            'cuisine': request.form.get('cuisine'),
+            'serves': request.form.get('serves'),
+            'time': request.form.get('time'),
+            'is_vegetarian': request.form.get('is_vegetarian'),
+            'is_vegan': request.form.get('is_vegan'),
+            'is_glutenFree': request.form.get('is_glutenFree'),
+            'is_dairyFree': request.form.get('is_dairyFree'),
+            'add_ingredients': request.form.get('add_ingredients'),
+            'method': request.form.get('method')
+        })
+    return redirect(url_for('get_recipes'))
+
+
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
 
 

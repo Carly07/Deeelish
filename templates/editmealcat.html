@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Edit Category: Meals and Courses</h3>
+
+<div class="row">
+	<form action="{{ url_for('update_meal', meal_id=meal._id) }}" method="POST" class="col s12">
+
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">restaurant</i>
+				<input id="meal_course_type" name="meal_course_type" type="text" class="validate" value="{{meal.meal_course_type}}">
+				<label for="meal_name">Category Name</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<a href="{{ url_for('get_categories') }}" class="btn waves-effect waves-light right">Cancel<i class="material-icons right">cancel</i></a>
+			<button class="btn waves-effect waves-light right" type="submit" name="action">Update Category<i class="material-icons right">playlist_add_check</i></button>
+		</div>
+
+	</form>
+</div>
+
+{% endblock %}

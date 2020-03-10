@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
-  import env 
+    import env
 
 app = Flask(__name__)
 
@@ -32,8 +32,8 @@ def view_recipe(recipe_id):
 @app.route('/add_recipe')
 def add_recipe():
     return render_template('addrecipe.html',
-            meals_courses=mongo.db.meals_courses.find(),
-            cuisines=mongo.db.cuisines.find())
+        meals_courses=mongo.db.meals_courses.find(),
+        cuisines=mongo.db.cuisines.find())
 
 
 @app.route('/insert_recipe', methods=['POST'])
@@ -77,6 +77,55 @@ def update_recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
+
+
+@app.route('/get_categories')
+def get_categories():
+    return render_template("categories.html",
+    meals_courses=mongo.db.meals_courses.find(),
+    cuisines=mongo.db.cuisines.find())
+
+
+@app.route('/edit_meal/<meal_id>')
+def edit_meal(meal_id):
+    return render_template('editmealcat.html',
+            meal=mongo.db.meals_courses.find_one(
+                {'_id': ObjectId(meal_id)}))
+
+
+@app.route('/edit_cuisine/<cuis_id>')
+def edit_cuisine(cuis_id):
+    return render_template('editcuisinecat.html',
+            cuis=mongo.db.cuisines.find_one(
+                {'_id': ObjectId(cuis_id)}))
+
+
+@app.route('/update_meal/<meal_id>', methods=['POST'])
+def update_meal(meal_id):
+    meals = mongo.db.meals_courses
+    meals.update({'_id': ObjectId(meal_id)},
+        {'meal_course_type': request.form.get('meal_course_type')})
+    return redirect(url_for('get_categories'))
+
+
+@app.route('/update_cuisine/<cuis_id>', methods=['POST'])
+def update_cuisine(cuis_id):
+    mongo.db.cuisines.update(
+        {'_id': ObjectId(cuis_id)},
+        {'cuisine': request.form.get('cuisine')})
+    return redirect(url_for('get_categories'))
+
+
+@app.route('/delete_meal/<meal_id>')
+def delete_meal(meal_id):
+    mongo.db.meals.remove({'_id': ObjectId(meal_id)})
+    return redirect(url_for('get_categories'))
+
+
+@app.route('/delete_cuisine/<cuis_id>')
+def delete_cuisine(cuis_id):
+    mongo.db.cuisines.remove({'_id': ObjectId(cuis_id)})
+    return redirect(url_for('get_categories'))
 
 
 if __name__ == '__main__':

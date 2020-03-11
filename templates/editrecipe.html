@@ -38,7 +38,7 @@
 				</div>
 
 				<div class="row">
-					<div class="input-field col s3">
+					<div class="input-field col m6 l3">
 						<i class="material-icons prefix">restaurant</i>
 						<select multiple id="meals_courses" name="meal_course_type">
                     <option value="" disabled selected>Mealtimes and Courses</option>
@@ -51,7 +51,7 @@
                     {% endfor %}
                 </select>
 					</div>
-					<div class="input-field col s3">
+					<div class="input-field col m6 l3">
 						<i class="material-icons prefix">fastfood</i>
 						<select id="cuisines" name="cuisine">
                     <option value="" disabled selected>Cuisines</option>
@@ -64,12 +64,12 @@
                     {% endfor %}
                 </select>
 					</div>
-					<div class="input-field col s3">
+					<div class="input-field col m6 l3">
 						<i class="material-icons prefix">people_outline</i>
 						<input id="serves" name="serves" type="number" class="materialize-textarea" value="{{recipe.serves}}">
 						<label for="serves">Serves</label>
 					</div>
-					<div class="input-field col s3">
+					<div class="input-field col m6 l3">
 						<i class="material-icons prefix">access_time</i>
 						<input id="time" name="time" type="text" class="materialize-textarea" value="{{recipe.time}}">
 						<label for="time">Total Time</label>
@@ -77,7 +77,7 @@
 				</div>
 
 				<div class="row">
-                    <div class="switch col s3">
+                    <div class="switch col s6 m6 l3">
                         <label>
                         
                         {% if recipe.is_vegetarian %}
@@ -89,7 +89,7 @@
                             Vegetarian
                         </label>
                     </div>
-                    <div class="switch col s3">
+                    <div class="switch col s6 m6 l3">
                         <label>
                         
                         {% if recipe.is_vegan %}
@@ -101,7 +101,7 @@
                             Vegan
                         </label>
                     </div>
-                    <div class="switch col s3">
+                    <div class="switch col s6 m6 l3">
                         <label>
                         
                         {% if recipe.is_glutenFree %}
@@ -113,7 +113,7 @@
                             Gluten Free
                         </label>
                     </div>
-                    <div class="switch col s3">
+                    <div class="switch col s6 m6 l3">
                         <label>
                         
                         {% if recipe.is_dairyFree %}
@@ -144,10 +144,12 @@
 				</div>
 
 				<div class="row">
-                    <a href="{{ url_for('get_recipes') }}" class="btn waves-effect waves-light right">Cancel<i class="material-icons right">cancel</i></a>
-					<button class="btn waves-effect waves-light right" type="submit" name="action">Update Recipe
+                    <button class="btn waves-effect waves-light right" type="submit" name="action">Save Changes
                         <i class="material-icons right">playlist_add_check</i>
                     </button>
+                </div>
+                <div class="row">    
+                    <a href="{{ url_for('get_recipes') }}" class="btn waves-effect waves-light right">Cancel<i class="material-icons right">cancel</i></a>
 				</div>
 	</form>
 </div>

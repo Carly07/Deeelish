@@ -118,13 +118,32 @@ def update_cuisine(cuis_id):
 
 @app.route('/delete_meal/<meal_id>')
 def delete_meal(meal_id):
-    mongo.db.meals.remove({'_id': ObjectId(meal_id)})
+    mongo.db.meals_courses.remove({'_id': ObjectId(meal_id)})
     return redirect(url_for('get_categories'))
 
 
 @app.route('/delete_cuisine/<cuis_id>')
 def delete_cuisine(cuis_id):
     mongo.db.cuisines.remove({'_id': ObjectId(cuis_id)})
+    return redirect(url_for('get_categories'))
+
+
+@app.route('/add_category')
+def add_category():
+    return render_template('addcategory.html')
+
+
+@app.route('/insert_meal', methods=['POST'])
+def insert_meal():
+    meal_doc = {'meal_course_type': request.form.get('meal_course_type')}
+    mongo.db.meals_courses.insert_one(meal_doc)
+    return redirect(url_for('get_categories'))
+
+
+@app.route('/insert_cuisine', methods=['POST'])
+def insert_cuisine():
+    cuisine_doc = {'cuisine': request.form.get('cuisine')}
+    mongo.db.cuisines.insert_one(cuisine_doc)
     return redirect(url_for('get_categories'))
 
 

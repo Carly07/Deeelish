@@ -82,8 +82,8 @@ def delete_recipe(recipe_id):
 @app.route('/get_categories')
 def get_categories():
     return render_template("categories.html",
-    meals_courses=mongo.db.meals_courses.find(),
-    cuisines=mongo.db.cuisines.find())
+    meals_courses=mongo.db.meals_courses.find().sort('meal_course_type'),
+    cuisines=mongo.db.cuisines.find().sort('cuisine'))
 
 
 @app.route('/edit_meal/<meal_id>')

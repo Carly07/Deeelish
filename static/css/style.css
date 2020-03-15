@@ -16,3 +16,7 @@ body {
     padding: 0 0.5em;
 }
 
+footer ul li{
+  display: inline;
+}
+

@@ -4,13 +4,15 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
-    import env
+  import env
 
 app = Flask(__name__)
 
 app.SECRET_KEY = os.environ.get('SECRET_KEY')
 app.config["MONGO_DBNAME"] = 'deeelish'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+app.config["IMAGE_UPLOADS"] = "/workspace/deeelish/static/images/uploads"
+
 
 
 mongo = PyMongo(app)
@@ -38,6 +40,10 @@ def add_recipe():
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
+    if request.method == "POST":
+        file = request.files["file"]
+        file.save(os.path.join(app.config["IMAGE_UPLOADS"], file.filename))
+
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
@@ -151,3 +157,4 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
+            

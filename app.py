@@ -2,9 +2,10 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.utils import secure_filename
 from os import path
 if path.exists("env.py"):
-  import env
+    import env
 
 app = Flask(__name__)
 
@@ -12,7 +13,21 @@ app.SECRET_KEY = os.environ.get('SECRET_KEY')
 app.config["MONGO_DBNAME"] = 'deeelish'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 app.config["IMAGE_UPLOADS"] = "/workspace/deeelish/static/images/uploads"
+app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
+
+def allowed_image(filename):
+
+    if not "." in filename:
+        return False
+
+    ext = filename.rsplit(".", 1)[1]
+
+    if ext.upper() in app.config["ALLOWED_IMAGE_EXTENSIONS"]:
+        return True
+    else:
+        return False
 
 
 mongo = PyMongo(app)
@@ -42,7 +57,22 @@ def add_recipe():
 def insert_recipe():
     if request.method == "POST":
         file = request.files["file"]
+
+        if file.filename == "":
+            print("No filename")
+            return redirect(request.url)
+        
+        if not allowed_image(file.filename):
+            print("Image extension not allowed")
+            return redirect(request.url)
+
+        else:
+            filename = secure_filename(file.filename)
+
         file.save(os.path.join(app.config["IMAGE_UPLOADS"], file.filename))
+        
+        print("Image saved")
+        return redirect(request.url)
 
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
@@ -157,4 +187,3 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
-            

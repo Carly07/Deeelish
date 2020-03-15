@@ -38,7 +38,7 @@ def add_recipe():
         cuisines=mongo.db.cuisines.find())
 
 
-@app.route('/insert_recipe', methods=['POST'])
+@app.route('/insert_recipe', methods=['GET', 'POST'])
 def insert_recipe():
     if request.method == "POST":
         file = request.files["file"]

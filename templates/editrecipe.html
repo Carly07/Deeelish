@@ -4,22 +4,15 @@
 <h3>Edit Recipe</h3>
 
 <div class="row">
-	<form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12">
+	<form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12" enctype="multipart/form-data">
 
 		<div class="row">
-			<div class="input-field col s1">
-				<i class="material-icons">add_photo_alternate</i>
-			</div>
+			<div class="input-field col s1"><i class="material-icons">add_photo_alternate</i></div>
 			<div class="file-field input-field col s6">
-				<div class="file-path-wrapper">
-					<input id="add_photo" name="add_photo" class="file-path validate" type="text" placeholder="Add photograph" value="{{recipe.add_photo}}">
-                </div>
-					<div class="btn">
-						<span>Upload Image</span>
-						<input type="file">
-                </div>
-					</div>
-				</div>
+				<div class="file-path-wrapper"><input id="add_photo" name="add_photo" class="file-path validate" type="text" placeholder="Add photograph" value="{{recipe.add_photo}}"></div>
+				<div class="btn"><span>Select Image</span><input type="file" name="file" id="image"></div>
+            </div>
+		</div>
 
 				<div class="row">
 					<div class="input-field col s12">

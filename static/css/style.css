@@ -2,15 +2,33 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #eeeeee;
+    color: #424242;
   }
 
   main {
     flex: 1 0 auto;
   }
 
+/*------------Headers-----------*/
+
+.page-head {
+    text-align: center;
+    letter-spacing: 1px;
+    padding: 20px;
+}
+
+/*------------Buttons-----------*/
+
 .btn {
-    background-color: #fbc02d;
+    background-color: #fdd835;
     font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background-color: #616161;
+    color: #fdd835;
 }
 
 .btn_small{
@@ -20,6 +38,8 @@ body {
     margin: 5px 5px;
     padding: 0 0.5em;
 } 
+
+/*------------Footer-----------*/
 
 footer ul li{
   display: inline;

@@ -8,13 +8,18 @@ body {
     flex: 1 0 auto;
   }
 
+.btn {
+    background-color: #fbc02d;
+    font-weight: bold;
+}
+
 .btn_small{
     height: 24px;
-    width: 60px;
+    width: 100px;
     line-height: 24px;
     margin: 5px 5px;
     padding: 0 0.5em;
-}
+} 
 
 footer ul li{
   display: inline;

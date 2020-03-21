@@ -7,7 +7,7 @@
 	</div>
 
     <div class="row">
-        <a href="{{url_for('add_category')}}" class="waves-effect waves-light btn"><i class="material-icons right">playlist_add</i>Add Category</a>
+        <a href="{{url_for('add_category')}}" class="waves-effect waves-light btn z-depth-3"><i class="material-icons right">playlist_add</i>Add Category</a>
     </div>
 
 	<div class="col s12 m6">
@@ -20,8 +20,8 @@
 					<div class="col s10">
 						<strong>{{meal.meal_course_type}}</strong>
 					</div>
-					<a href="{{url_for('edit_meal', meal_id=meal._id)}}" class="waves-effect waves-light btn btn_small">Edit</a>
-					<a href="{{url_for('delete_meal', meal_id=meal._id)}}" class="waves-effect waves-light btn btn_small">Delete</a>
+					<a href="{{url_for('edit_meal', meal_id=meal._id)}}" class="waves-effect waves-light btn btn_small z-depth-2">Edit</a>
+					<a href="{{url_for('delete_meal', meal_id=meal._id)}}" class="waves-effect waves-light btn btn_small z-depth-2">Delete</a>
 				</div>
 			</li>
 			{% endfor %}
@@ -38,8 +38,8 @@
 					<div class="col s10">
 						<strong>{{cuis.cuisine}}</strong>
 					</div>
-					<a href="{{url_for('edit_cuisine', cuis_id=cuis._id)}}" class="waves-effect waves-light btn btn_small">Edit</a>
-					<a href="{{url_for('delete_cuisine', cuis_id=cuis._id)}}" class="waves-effect waves-light btn btn_small">Delete</a>
+					<a href="{{url_for('edit_cuisine', cuis_id=cuis._id)}}" class="waves-effect waves-light btn btn_small z-depth-2">Edit</a>
+					<a href="{{url_for('delete_cuisine', cuis_id=cuis._id)}}" class="waves-effect waves-light btn btn_small z-depth-2">Delete</a>
 				</div>
 			</li>
 			{% endfor %}

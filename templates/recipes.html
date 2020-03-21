@@ -35,7 +35,7 @@
                 </select>
             </div>
             <div class="col s3">
-                <button type="submit" class="waves-effect waves-light btn center">Filter</button>
+                <button type="submit" class="waves-effect waves-light btn z-depth-3 center">Filter</button>
             </div>
         </div>
     </form>
@@ -58,7 +58,7 @@
                         <span>{{recipe.recipe_description}}</span>
                     </div>
                     <div class="col s3">
-                        <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small">View</a>
+                        <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn z-depth-2">View</a>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
 </div>
 
 <div class="row">
-    <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn"><i class="material-icons right">playlist_add</i>Add Recipe</a>
+    <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn z-depth-3"><i class="material-icons right">playlist_add</i>Add Recipe</a>
 </div>
 
 {% endblock %}

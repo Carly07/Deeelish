@@ -8,9 +8,11 @@
 
 		<div class="row">
 			<div class="input-field col s1"><i class="material-icons">add_photo_alternate</i></div>
-			<div class="file-field input-field col s6">
-				<div class="file-path-wrapper"><input class="file-path validate" type="text" placeholder="Add photograph"></div>
-				<div class="btn"><span>Select Image</span><input type="file" name="file" id="image"></div>
+			<div class="file-field input-field img-icon col s11 m6 l8">
+				<div class="file-path-wrapper img-path"><input class="file-path validate" type="text" placeholder="Add photograph"></div>
+            </div>
+            <div class="file-field input-field col s12 m5 l3">
+				<div class="btn btn-img right"><span>Select Image</span><input type="file" name="file" id="image"></div>
             </div>
 		</div>
 
@@ -31,7 +33,7 @@
         </div>
 
         <div class="row">
-            <div class="input-field col m6 l3"><i class="material-icons prefix">restaurant</i>
+            <div class="input-field col s12 m6 l3"><i class="material-icons prefix">restaurant</i>
                 <select multiple id="meals_courses" name="meal_course_type">
                     <option value="" disabled selected>Mealtimes & Courses</option>
                 {% for meals in meals_courses %}
@@ -39,7 +41,7 @@
                 {% endfor %}
                 </select>
             </div>
-            <div class="input-field col m6 l3"><i class="material-icons prefix">fastfood</i>
+            <div class="input-field col s12 m6 l3"><i class="material-icons prefix">fastfood</i>
                 <select id="cuisines" name="cuisine">
                     <option value="" disabled selected>Cuisines</option>
                 {% for cuis in cuisines %}
@@ -47,11 +49,11 @@
                 {% endfor %}
                 </select>
             </div>
-            <div class="input-field col m6 l3"><i class="material-icons prefix">people_outline</i>
+            <div class="input-field col s12 m6 l3"><i class="material-icons prefix">people_outline</i>
                 <input id="serves" name="serves" type="number" class="materialize-textarea">
                 <label for="serves">Serves</label>
             </div>
-            <div class="input-field col s6 m6 l3"><i class="material-icons prefix">access_time</i>
+            <div class="input-field col s12 m6 l3"><i class="material-icons prefix">access_time</i>
                 <input id="time" name="time" type="text" class="materialize-textarea">
                 <label for="time">Total Time</label>
             </div>

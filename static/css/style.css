@@ -46,6 +46,26 @@ body {
     padding: 15px;
 }
 
+/*------------Add Recipe Page-----------*/
+
+.img-icon {
+    padding-left: 0px !important;
+}
+
+.img-path {
+    padding-left: 0px !important;
+}
+
+@media (max-width: 575.98px) {
+    .img-path {
+    margin-left: 2.5rem;
+}
+}
+
+.lever {
+    margin-left: 0px !important;
+}
+
 /*------------Buttons-----------*/
 
 .btn {
@@ -62,6 +82,10 @@ body {
 .btn-filter {
     margin-top: 25px; 
     width: 10rem;
+}
+
+.btn-img {
+    width: 12rem;
 }
 
 .btn_small{

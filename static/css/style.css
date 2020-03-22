@@ -33,8 +33,14 @@ body {
     padding: 20px;
 }
 
-.dropdown-content ul li {
-    color:  #616161;
+ul.dropdown-content.select-dropdown li span {
+    color: #616161;
+}
+
+.collapsible-header {
+    margin-bottom: 20px;
+    background-color: #616161;
+    color: #eeeeee;
 }
 
 .recipe-name-col {
@@ -46,6 +52,9 @@ body {
     padding: 15px;
 }
 
+.add-recipe-row {
+    margin-bottom: 50px;
+}
 /*------------Add Recipe Page-----------*/
 
 .img-icon {

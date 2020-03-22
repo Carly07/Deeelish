@@ -18,8 +18,8 @@
             </div>
             <div class="col s12 m3">
                 <label for="meal_course">Meal Time or Course</label>
-                <select id="meal_course" name="meal_course">
-                    <option value="all">All</option>
+                <select id="meal_course" name="meal_course" class="grey-text text-darken-2">
+                    <option class="filter-dropdown grey-text text-darken-2" value="all">All</option>
                 {% for meals in meals_courses %}
                     <option value="{{meals.meal_course_type}}">{{meals.meal_course_type}}</option>
                 {% endfor %}
@@ -27,8 +27,8 @@
             </div>
             <div class="col s12 m3">
                 <label for="cuisine">Cuisine</label>
-                <select id="cuisine" name="cuisine">
-                    <option class="filter-dropdown" value="all">All</option>
+                <select id="cuisine" name="cuisine" class="grey-text text-darken-2">
+                    <option class="filter-dropdown grey-text text-darken-2" value="all">All</option>
                 {% for cuis in cuisines %}
                     <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>
                 {% endfor %}
@@ -41,15 +41,15 @@
     </form>
 </div>
 
-<div class="row">
+<div class="row results-row">
     <ul class="collapsible" data-collapsible="accordion">
         {% for recipe in recipes %}
         <li>
             <div class="collapsible-header">
-                    <div class="col s8 recipe-name-col"><strong>{{recipe.recipe_name }}</strong></div>
-                    <div class="col s3">{{recipe.meal_course_type}} |
+                    <div class="col s8 recipe-name-col yellow-text text-darken-1"><strong>{{recipe.recipe_name }}</strong></div>
+                    <div class="col s3">{{recipe.meal_course_type}} <span class="yellow-text text-darken-1">|</span>
                         {{recipe.cuisine}}</div>
-                    <div class="col s1"><i class="material-icons">expand_more</i></div>
+                    <div class="col s1"><i class="material-icons yellow-text text-darken-1">expand_more</i></div>
             </div>
             <div class="collapsible-body">
                 <div class="row">
@@ -66,8 +66,8 @@
     </ul>
 </div>
 
-<div class="row">
-    <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn z-depth-3 right"><i class="material-icons right">playlist_add</i>Add Recipe</a>
+<div class="row add-recipe-row">
+    <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn z-depth-3"><i class="material-icons right">playlist_add</i>Add New Recipe</a>
 </div>
 
 {% endblock %}

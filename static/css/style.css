@@ -55,6 +55,12 @@ ul.dropdown-content.select-dropdown li span {
 .add-recipe-row {
     margin-bottom: 50px;
 }
+
+@media (max-width: 575.98px) {
+    .btn-col {
+    margin-top: 1.5rem;
+}
+}
 /*------------Add Recipe Page-----------*/
 
 .img-icon {
@@ -73,6 +79,21 @@ ul.dropdown-content.select-dropdown li span {
 
 .lever {
     margin-left: 0px !important;
+}
+
+/*------------View Recipe Page-----------*/
+
+.recipe_description {
+    margin: 0px 0px 30px 0px;
+    font-size: 20px;
+}
+
+.info-col {
+    margin-left: 10px;
+}
+
+.suit-col {
+    padding-left: 35px;
 }
 
 /*------------Buttons-----------*/
@@ -104,6 +125,10 @@ ul.dropdown-content.select-dropdown li span {
     margin: 5px 5px;
     padding: 0 0.5em;
 } 
+
+.btn-del {
+    margin: 0px 0px 0px 5px;
+}
 
 /*------------Footer-----------*/
 .page-footer {

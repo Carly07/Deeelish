@@ -1,58 +1,60 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<h3 class="page-head">{{recipe.recipe_name}}</h3>
 
 <div class="row">
 	<div class="col s12 m4 l3">
-    
-		    
+        <div class="card-panel">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="">
+                <span class="sr-only">Recipe Image</span>
+            </div>
+        </div> 
     </div>
+
 	<div class="col s12 m8 l9">
+		<p class="recipe_description">{{recipe.recipe_description}}</p>
+
 		<div class="row">
-			<div class="heading">
-					<h3 class="recipe_name">{{recipe.recipe_name}}</h3>
-					<h6 class="recipe_description">{{recipe.recipe_description}}</h6>
-			</div>
-		</div>
-		<div class="row">
-                <div class="col s6 m3">
-                        <i class="material-icons prefix">restaurant</i><span>{{recipe.meal_course_type}}</span>
+                <div class="col s6 m6 l3">
+                        <i class="material-icons prefix">restaurant</i><span class="info-col">{{recipe.meal_course_type}}</span>
                 </div>
-                <div class="col s6 m3">
-                        <i class="material-icons prefix">fastfood</i><span>{{recipe.cuisine}}</span>
+                <div class="col s6 m6 l3">
+                        <i class="material-icons prefix">fastfood</i><span class="info-col">{{recipe.cuisine}}</span>
                 </div>
-                <div class="col s6 m3">
-                        <i class="material-icons prefix">people_outline</i><span> Serves {{recipe.serves}}</span>
+                <div class="col s6 m6 l3">
+                        <i class="material-icons prefix">people_outline</i><span class="info-col"> Serves {{recipe.serves}}</span>
                 </div>
-                <div class="col s6 m3">
-                        <i class="material-icons prefix">access_time</i><span>{{recipe.time}}</span>
+                <div class="col s6 m6 l3">
+                        <i class="material-icons prefix">access_time</i><span class="info-col">{{recipe.time}}</span>
                 </div>
 		</div>
         <div class="row">
-                <div class="col s6 m3">
+                <div class="col s6 m6 l3">
                     {% if recipe.is_vegetarian %}
-                        <span>Vegetarian</span>
+                        <span class="suit-col">Vegetarian</span>
                     {% else %}
 
                     {% endif%}
                 </div>
-                <div class="col s6 m3">
+                <div class="col s6 m6 l3">
                     {% if recipe.is_vegan %}
-                        <span>Vegan</span>
+                        <span class="suit-col">Vegan</span>
                     {% else %}
 
                     {% endif%}
                 </div>
-                <div class="col s6 m3">
+                <div class="col s6 m6 l3">
                     {% if recipe.is_glutenFree %}
-                        <span>Gluten Free</span>
+                        <span class="suit-col">Gluten Free</span>
                     {% else %}
 
                     {% endif%}
                 </div>
-                <div class="col s6 m3">
+                <div class="col s6 m6 l3">
                     {% if recipe.is_dairyFree %}
-                        <span>Dairy Free</span>
+                        <span class="suit-col">Dairy Free</span>
                     {% else %}
 
                     {% endif%}
@@ -71,7 +73,7 @@
 	</div>
 </div>
 <div class="row">
-    <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right btn">Delete<i class="material-icons right">delete</i></a>
+    <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right btn btn-del">Delete<i class="material-icons right">delete</i></a>
     <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right btn">Edit<i class="material-icons right">create</i></a>
 </div>
 <div class="row">

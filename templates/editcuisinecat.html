@@ -8,7 +8,7 @@
 <div class="row">
 	<form action="{{ url_for('update_cuisine', cuis_id=cuis._id) }}" method="POST" class="col s12">
 
-		<div class="row">
+		<div class="row edit-cat-row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">fastfood</i>
 				<input id="cuisine" name="cuisine" type="text" class="validate" value="{{cuis.cuisine}}">
@@ -22,7 +22,7 @@
             </button>
 		</div>
 		<div class="row">
-			<a href="{{ url_for('get_recipes') }}"
+			<a href="{{ url_for('get_categories') }}"
 				class="btn waves-effect waves-light right">Cancel<i class="material-icons right">cancel</i></a>
 		</div>
 

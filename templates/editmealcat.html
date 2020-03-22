@@ -8,7 +8,7 @@
 <div class="row">
 	<form action="{{ url_for('update_meal', meal_id=meal._id) }}" method="POST" class="col s12">
 
-		<div class="row">
+		<div class="row edit-cat-row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">restaurant</i>
 				<input id="meal_course_type" name="meal_course_type" type="text" class="validate" value="{{meal.meal_course_type}}">

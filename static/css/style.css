@@ -83,6 +83,10 @@ ul.dropdown-content.select-dropdown li span {
 
 /*------------View Recipe Page-----------*/
 
+.card-panel {
+    height: 207.3px;
+}
+
 .recipe_description {
     margin: 0px 0px 30px 0px;
     font-size: 20px;

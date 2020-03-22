@@ -3,12 +3,12 @@
 
 <h3 class="page-head">Discover Recipes</h3>
 
-<div class="row">
+<div class="row filter-form">
     <form action="{{url_for('get_recipes')}}" class="" method="GET">
         <div class="row">
-            <div class="col s3">
+            <div class="col s12 m3">
                 <label for="suitability">Suitability</label>
-                <select name="suitability" id="suitability">
+                <select name="suitability" id="suitability" class="grey-text text-darken-2">
                     <option value="all">All</option>
                     <option value="vegetarian">Vegeterian</option>
                     <option value="vegan">Vegan</option>
@@ -16,7 +16,7 @@
                     <option value="dairy">Dairy Free</option>
                 </select>
             </div>
-            <div class="col s3">
+            <div class="col s12 m3">
                 <label for="meal_course">Meal Time or Course</label>
                 <select id="meal_course" name="meal_course">
                     <option value="all">All</option>
@@ -25,17 +25,17 @@
                 {% endfor %}
                 </select>
             </div>
-            <div class="col s3">
+            <div class="col s12 m3">
                 <label for="cuisine">Cuisine</label>
                 <select id="cuisine" name="cuisine">
-                    <option value="all">All</option>
+                    <option class="filter-dropdown" value="all">All</option>
                 {% for cuis in cuisines %}
                     <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>
                 {% endfor %}
                 </select>
             </div>
-            <div class="col s3">
-                <button type="submit" class="waves-effect waves-light btn z-depth-3 center">Filter</button>
+            <div class="col s12 m3">
+                <button type="submit" class="waves-effect waves-light btn btn-filter z-depth-3 right">Filter</button>
             </div>
         </div>
     </form>
@@ -46,19 +46,18 @@
         {% for recipe in recipes %}
         <li>
             <div class="collapsible-header">
-                <div class="row">
-                    <div class="col s11"><strong>{{recipe.recipe_name }}</strong>&nbsp- {{recipe.meal_course_type}} |
+                    <div class="col s8 recipe-name-col"><strong>{{recipe.recipe_name }}</strong></div>
+                    <div class="col s3">{{recipe.meal_course_type}} |
                         {{recipe.cuisine}}</div>
                     <div class="col s1"><i class="material-icons">expand_more</i></div>
-                </div>
             </div>
             <div class="collapsible-body">
                 <div class="row">
-                    <div class="col s9">
+                    <div class="col s10">
                         <span>{{recipe.recipe_description}}</span>
                     </div>
-                    <div class="col s3">
-                        <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn z-depth-2">View</a>
+                    <div class="col s2">
+                        <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn z-depth-2 right">View</a>
                     </div>
                 </div>
             </div>

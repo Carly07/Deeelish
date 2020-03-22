@@ -10,12 +10,40 @@ body {
     flex: 1 0 auto;
   }
 
+/*------------Navbar-----------*/
+
+.brand-logo {
+    letter-spacing: 1px;
+}
+
+.dropdown-button {
+    letter-spacing: 1px;
+}
+
 /*------------Headers-----------*/
 
 .page-head {
     text-align: center;
     letter-spacing: 1px;
+    padding: 30px;
+}
+
+/*------------Recipes Page-----------*/
+.filter-form {
     padding: 20px;
+}
+
+.dropdown-content ul li {
+    color:  #616161;
+}
+
+.recipe-name-col {
+    font-size: 18px;
+    letter-spacing: .5px;
+}
+
+.collapsible-body {
+    padding: 15px;
 }
 
 /*------------Buttons-----------*/
@@ -31,6 +59,11 @@ body {
     color: #fdd835;
 }
 
+.btn-filter {
+    margin-top: 25px; 
+    width: 10rem;
+}
+
 .btn_small{
     height: 24px;
     width: 100px;
@@ -40,8 +73,35 @@ body {
 } 
 
 /*------------Footer-----------*/
+.page-footer {
+    padding-top: 0px;
+}
+
+.footer-row {
+    margin-bottom: 0px;
+    padding: 10px 0px;
+}
 
 footer ul li{
   display: inline;
 }
 
+.social-links li a i {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 3px;
+    margin-right: 5px;
+}
+
+.social-links li a i:hover {
+    font-weight: bolder;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.footer-copyright {
+    text-align: center;
+}

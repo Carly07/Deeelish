@@ -35,7 +35,7 @@
 				<div class="row">
 					<div class="input-field col s12 m6 l3">
 						<i class="material-icons prefix">restaurant</i>
-						<select multiple id="meals_courses" name="meal_course_type">
+						<select id="meals_courses" name="meal_course_type">
                     <option value="" disabled selected>Mealtimes and Courses</option>
                     {% for meals in meals_courses %}
                         {% if meals.meal_course_type == recipe.meal_course_type %}

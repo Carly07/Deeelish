@@ -77,6 +77,11 @@ ul.dropdown-content.select-dropdown li span {
 }
 }
 
+.dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
+     border: 2px solid #fdd835;
+     background-color: #fdd835;
+}
+
 .lever {
     margin-left: 0px !important;
 }

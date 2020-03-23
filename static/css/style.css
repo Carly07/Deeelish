@@ -81,6 +81,55 @@ ul.dropdown-content.select-dropdown li span {
     margin-left: 0px !important;
 }
 
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #fdd835 !important;
+}
+
+.lever::after {
+    background: #fdd835 !important;
+}
+
+.input-field .prefix.active {
+    color: #fdd835 !important;
+}
+
+input:focus {
+  border-bottom: 1px solid #fdd835 !important;
+  box-shadow: 0 1px 0 0 #fdd835 !important;
+}
+
+.add-recipe-form label.active {
+  color: #fdd835 !important;
+}
+
+/*------------Edit Recipe Page-----------*/
+
+.input-field label.active::after {
+    color: #9e9e9e;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label  {
+    color: #fdd835 !important;
+}
+
+input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:not(.browser-default), input[type=text].valid:not(.browser-default):focus, input[type=password].valid:not(.browser-default), input[type=password].valid:not(.browser-default):focus, input[type=email].valid:not(.browser-default), input[type=email].valid:not(.browser-default):focus, input[type=url].valid:not(.browser-default), input[type=url].valid:not(.browser-default):focus, input[type=time].valid:not(.browser-default), input[type=time].valid:not(.browser-default):focus, input[type=date].valid:not(.browser-default), input[type=date].valid:not(.browser-default):focus, input[type=datetime].valid:not(.browser-default), input[type=datetime].valid:not(.browser-default):focus, input[type=datetime-local].valid:not(.browser-default), input[type=datetime-local].valid:not(.browser-default):focus, input[type=tel].valid:not(.browser-default), input[type=tel].valid:not(.browser-default):focus, input[type=number].valid:not(.browser-default), input[type=number].valid:not(.browser-default):focus, input[type=search].valid:not(.browser-default), input[type=search].valid:not(.browser-default):focus, textarea.materialize-textarea.valid, textarea.materialize-textarea.valid:focus, .select-wrapper.valid>input.select-dropdown {
+    border-bottom: 1px solid #b2b2b2;
+    -webkit-box-shadow: 0 1px 0 0 #b2b2b2;
+    box-shadow: 0 1px 0 0 #b2b2b2;
+}
+
+textarea.materialize-textarea {
+    overflow-y: scroll;
+    border-bottom: 1px #b2b2b2 !important;
+    box-shadow: 0 1px 0 0 #b2b2b2 !important;
+}
+
+textarea.materialize-textarea:focus {
+    overflow-y: scroll;
+    border-bottom: 1px solid #fdd835 !important;
+    box-shadow: 0 1px 0 0 #fdd835 !important;
+}
+
 /*------------View Recipe Page-----------*/
 
 .card-panel {

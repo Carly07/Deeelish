@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.SECRET_KEY = os.environ.get('SECRET_KEY')
 app.config["MONGO_DBNAME"] = 'deeelish'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-app.config["IMAGE_UPLOADS"] = "/workspace/deeelish/static/images/uploads"
+app.config["IMAGE_UPLOADS"] = "/workspace/deeelish/static/images/uploads/"
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
@@ -20,7 +20,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 def allowed_image(filename):
 
     # We only want files with a . in the filename
-    if not "." in filename:
+    if "." not in filename:
         return False
 
     # Split the extension from the filename

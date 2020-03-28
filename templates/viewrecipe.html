@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="container">
 <h3 class="page-head">{{recipe.recipe_name}}</h3>
 
 <div class="row">
 	<div class="col s12 m4 l3">
         <div class="card-panel">
             <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="">
+                <img class="activator" src="{{ url_for('static', filename='images/uploads/') }}">
                 <span class="sr-only">Recipe Image</span>
             </div>
         </div> 
@@ -78,5 +79,6 @@
 </div>
 <div class="row">
     <a href="{{ url_for('get_recipes') }}" class="waves-effect waves-light right btn ">Return<i class="material-icons right">keyboard_return</i></a>
+</div>
 </div>
 {% endblock %}

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="container">
 <h3 class="page-head">Discover Recipes</h3>
 
 <div class="row filter-form">
@@ -68,6 +69,7 @@
 
 <div class="row add-recipe-row">
     <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn z-depth-3"><i class="material-icons right">playlist_add</i>Add New Recipe</a>
+</div>
 </div>
 
 {% endblock %}

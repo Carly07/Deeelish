@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="container">
 <h3 class="page-head">Edit Recipe</h3>
 
 <div class="row">
@@ -10,9 +10,7 @@
 			<div class="input-field col s1"><i class="material-icons">add_photo_alternate</i></div>
 			<div class="file-field input-field img-icon col s11 m6 l8">
 				<div class="file-path-wrapper img-path"><input class="file-path validate" type="text" id="add_photo" name="add_photo" placeholder="Add photograph" value="{{recipe.add_photo}}"></div>
-            </div>
-            <div class="file-field input-field col s12 m5 l3">
-				<div class="btn btn-img right"><span>Select Image</span><input type="file" name="file" id="image"></div>
+                <div class="btn btn-img right"><span>Select Image</span><input type="file" name="file" id="image"></div>
             </div>
 		</div>
 
@@ -147,6 +145,7 @@
                     <a href="{{ url_for('get_recipes') }}" class="btn waves-effect waves-light right">Cancel<i class="material-icons right">cancel</i></a>
 				</div>
 	</form>
+</div>
 </div>
 
 {% endblock %}

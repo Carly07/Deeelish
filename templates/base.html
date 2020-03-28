@@ -24,13 +24,13 @@
             </ul>
             <ul id="dropdown2" class="dropdown-content">
                 <li><a class="grey lighten-2 grey-text text-darken-2" href="{{url_for('get_categories')}}">Browse Categories</a></li>
-                <li><a class="grey lighten-2 grey-text text-darken-2"href="{{url_for('add_category')}}">Add Category</a></li>
+                <li><a class="grey lighten-2 grey-text text-darken-2" href="{{url_for('add_category')}}">Add Category</a></li>
             </ul>
             <div class="navbar-fixed">
                 <nav>
                     <div class="nav-wrapper grey darken-2">
                         <div class="container">
-                            <a href="{{url_for('index')}}" class="brand-logo"><span class="yellow-text text-darken-1">Deee</span>lish<span class="yellow-text text-darken-1">!<span></a>
+                            <a href="{{url_for('index')}}" class="brand-logo"><span class="yellow-text text-darken-1">Deee</span>lish<span class="yellow-text text-darken-1">!</span></a>
                             <a href="#" data-activates="mobile-demo"
                                 class="button-collapse"><i class="material-icons">menu</i></a>
                             <ul class="right hide-on-med-and-down">
@@ -56,10 +56,10 @@
             </ul>
 	</header>
     <main>
-	<div class="container">
+	
 		{% block content %}
 		{% endblock %}
-	</div>
+	
     </main>
 
 	<footer class="page-footer grey darken-2">
@@ -101,8 +101,11 @@
             $('select').material_select();
             $(".dropdown-button").dropdown();
             $(".button-collapse").sideNav();
+            $('.parallax').parallax();
+            $('.carousel').carousel();
         });
 	</script>
+    
 
 {% block script %} {% endblock %}
 

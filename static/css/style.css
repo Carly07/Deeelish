@@ -20,6 +20,17 @@ body {
     letter-spacing: 1px;
 }
 
+/*------------Index Page-----------*/
+
+.parallax-container {
+    width: 100%;
+}
+ 
+
+.carousel {
+    height: 300px !important;
+}
+
 /*------------Headers-----------*/
 
 .page-head {

@@ -1,9 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3 class="page-head">Deeelish</h3>
+
+<div class="parallax-container">
+	<div class="parallax"><img src="{{ url_for('static', filename='images/uploads/deeelish-cover.jpg') }}"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <h2 class="header">Welcome to Deeelish!</h2>
+        <p class="grey-text text-darken-3 lighten-3">Search and shared recipes</p>
+    </div>
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="{{ url_for('static', filename='images/uploads/banana-bread.jpg') }}"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <h2 class="header">Easter Recipes</h2>
+        <p class="grey-text text-darken-3 lighten-3">Find Easter recipes for entertaining and baking over the bank holiday weekend, from roast lamb with all the trimmings to classic bakes, including hot cross buns and simnel cake.</p>
+        <div class="row">
+    <div class="carousel">
+        <a class="carousel-item"
+            href="{{url_for('view_recipe', recipe_id='5e7f6ba62c2a25ef5bf9903f')}}"><img src="{{ url_for('static', filename='images/uploads/HotCrossBuns.jpg') }}"></a>
+        <a class="carousel-item"
+            href="{{url_for('view_recipe', recipe_id='5e7f7128c814a57c303ee2f0')}}"><img src="{{ url_for('static', filename='images/uploads/MarbledEgg.jpg') }}"></a>
+        <a class="carousel-item"
+            href="{{url_for('view_recipe', recipe_id='5e7f74ebc814a57c303ee2f2')}}"><img src="{{ url_for('static', filename='images/uploads/healthy-easter-lamb.jpg') }}"></a>
+        <a class="carousel-item"
+            href="{{url_for('view_recipe', recipe_id='5e7f76dac814a57c303ee2f4')}}"><img src="{{ url_for('static', filename='images/uploads/easter-nest-cake.jpg') }}"></a>
+        <a class="carousel-item"
+            href="{{url_for('view_recipe', recipe_id='5e7fba6ee13678197962ff96')}}"><img src="{{ url_for('static', filename='images/uploads/simnel-cake.jpg') }}"></a>
+    </div>
+</div>
+    </div>
+</div>
 
 
-
-
-{% endblock %}
+		{% endblock %}

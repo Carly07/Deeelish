@@ -103,6 +103,14 @@ body {
     }
 }
 
+.tech-row {
+    margin-bottom: 0;
+}
+
+.tech-col {
+    padding: 20px !important;
+}
+
 /*------------Headers-----------*/
 
 .page-head {

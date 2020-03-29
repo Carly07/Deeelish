@@ -75,6 +75,34 @@ body {
     height: 300px !important;
 }
 
+
+/*------------Tips Page-----------*/
+
+.tip-card {
+    margin: 20px;
+    text-align: center;
+}
+
+.tip-content {
+    padding: 30px 10px !important;
+}
+
+@media (min-width: 601px) and (max-width: 992px) {
+    .tip-content {
+        height: 100px;
+        padding: 20px 10px !important;
+    }
+    .card-title {
+        line-height: 24px !important;
+    }
+}
+
+@media (min-width: 993px) {
+    .tip-content {
+        padding: 20px 10px !important;
+    }
+}
+
 /*------------Headers-----------*/
 
 .page-head {

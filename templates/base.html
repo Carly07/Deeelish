@@ -41,7 +41,7 @@
                                 <li><a class="dropdown-button" href="#!"
                                         data-activates="dropdown2">Categories<i class="material-icons yellow-text darken-1 right">arrow_drop_down</i></a>
                                 </li>
-                                <li><a href="#">Tips & Techniques</a></li>
+                                <li><a href="{{url_for('tips_technique')}}">Tips & Techniques</a></li>
                             </ul>
                         </div>    
                     </div>
@@ -52,7 +52,7 @@
                 <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                 <li><a href="{{url_for('get_categories')}}">Browse Categories</a></li>
                 <li><a href="{{url_for('add_category')}}">Add Categories</a></li>
-                <li><a href="#">Tips & Techniques</a></li>
+                <li><a href="{{url_for('tips_technique')}}">Tips & Techniques</a></li>
             </ul>
 	</header>
     <main>
@@ -103,6 +103,7 @@
             $(".button-collapse").sideNav();
             $('.parallax').parallax();
             $('.carousel').carousel();
+            $('.modal').modal();
         });
 	</script>
     

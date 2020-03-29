@@ -25,7 +25,51 @@ body {
 .parallax-container {
     width: 100%;
 }
- 
+
+.welcome-para {
+    font-size: 1.5rem;
+}
+
+.search-col {
+    padding-left: 0px !important;
+}
+
+.share-col {
+    padding-right: 0px !important;
+}
+
+.welcome-card {
+    text-align: center;
+}
+
+.card .card-content {
+    padding: 50px;
+}
+
+.card .card-content p {
+    margin-top: 20px;
+}
+
+.card-title a {
+    margin-top: 50px;
+    font-size: 1.25rem;
+    color: #616161 !important;
+    
+}
+
+.card-title .material-icons {
+    font-size: 3rem;
+    color: #fdd835;
+}
+
+.card-title .material-icons:hover {
+    color: #616161 !important;
+}
+
+.card-title a:hover {
+    color: #616161 !important;
+    font-size: 1.3rem;
+}
 
 .carousel {
     height: 300px !important;

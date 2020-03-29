@@ -8,7 +8,30 @@
 <div class="section white">
     <div class="row container">
         <h2 class="header">Welcome to Deeelish!</h2>
-        <p class="grey-text text-darken-3 lighten-3">Search and shared recipes</p>
+        <p class="welcome-para grey-text text-darken-2 lighten-3">Here at Deeelish we love food and are passionate about
+            producing fresh home cooked meals for all to enjoy. Our aim is to get the nation cooking again so we've
+            created this online community kitchen to encourage the sharing of delicious recipes and how to guides.
+            So stay home and get cooking...</p>
+    </div>
+    <div class="row container">
+        <div class="col s12 m6 search-col">
+            <div class="card welcome-card grey lighten-5">
+                <div class="card-content grey-text text-darken-2">
+                    <span class="card-title">
+                        <a href="{{ url_for('get_recipes') }}"><i class="material-icons prefix">search</i><p class="card-text">Search our recipes</p></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 share-col">
+            <div class="card welcome-card grey lighten-5">
+                <div class="card-content grey-text text-darken-2">
+                    <span class="card-title">
+                        <a href="{{url_for('add_recipe')}}"><i class="material-icons prefix">share</i><p class="card-text">Share your recipes</p></a>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="parallax-container">
@@ -16,24 +39,30 @@
 </div>
 <div class="section white">
     <div class="row container">
-        <h2 class="header">Easter Recipes</h2>
-        <p class="grey-text text-darken-3 lighten-3">Find Easter recipes for entertaining and baking over the bank holiday weekend, from roast lamb with all the trimmings to classic bakes, including hot cross buns and simnel cake.</p>
+        <h2 class="header">Seasonal Recipes</h2>
+        <p class="welcome-para grey-text text-darken-2 lighten-3">Easter is fastly approaching, so we've put together a few our favourite deeelish recipes, that are perfect for entertaining and baking over the bank holiday weekend. From roast lamb with all the trimmings to classic bakes, including     hot cross buns and simnel cake. Or why not get creative with the kids and make your very own chocolate eggs. Happy Easter...</p>
         <div class="row">
-    <div class="carousel">
-        <a class="carousel-item"
-            href="{{url_for('view_recipe', recipe_id='5e7f6ba62c2a25ef5bf9903f')}}"><img src="{{ url_for('static', filename='images/uploads/HotCrossBuns.jpg') }}"></a>
-        <a class="carousel-item"
-            href="{{url_for('view_recipe', recipe_id='5e7f7128c814a57c303ee2f0')}}"><img src="{{ url_for('static', filename='images/uploads/MarbledEgg.jpg') }}"></a>
-        <a class="carousel-item"
-            href="{{url_for('view_recipe', recipe_id='5e7f74ebc814a57c303ee2f2')}}"><img src="{{ url_for('static', filename='images/uploads/healthy-easter-lamb.jpg') }}"></a>
-        <a class="carousel-item"
-            href="{{url_for('view_recipe', recipe_id='5e7f76dac814a57c303ee2f4')}}"><img src="{{ url_for('static', filename='images/uploads/easter-nest-cake.jpg') }}"></a>
-        <a class="carousel-item"
-            href="{{url_for('view_recipe', recipe_id='5e7fba6ee13678197962ff96')}}"><img src="{{ url_for('static', filename='images/uploads/simnel-cake.jpg') }}"></a>
+            <div class="carousel">
+                <a class="carousel-item"
+                    href="{{url_for('view_recipe', recipe_id='5e7f6ba62c2a25ef5bf9903f')}}"><img src="{{ url_for('static', filename='images/uploads/HotCrossBuns.jpg') }}"></a>
+                    <a class="carousel-item"
+                        href="{{url_for('view_recipe', recipe_id='5e7f7128c814a57c303ee2f0')}}"><img src="{{ url_for('static', filename='images/uploads/MarbledEgg.jpg') }}"></a>
+                        <a class="carousel-item"
+                            href="{{url_for('view_recipe', recipe_id='5e7f74ebc814a57c303ee2f2')}}"><img src="{{ url_for('static', filename='images/uploads/healthy-easter-lamb.jpg') }}"></a>
+                            <a class="carousel-item"
+                                href="{{url_for('view_recipe', recipe_id='5e7f76dac814a57c303ee2f4')}}"><img src="{{ url_for('static', filename='images/uploads/easter-nest-cake.jpg') }}"></a>
+                                <a class="carousel-item"
+                                    href="{{url_for('view_recipe', recipe_id='5e7fba6ee13678197962ff96')}}"><img src="{{ url_for('static', filename='images/uploads/simnel-cake.jpg') }}"></a>
+                                    <a class="carousel-item"
+                                        href="{{url_for('view_recipe', recipe_id='5e7fc1dde13678197962ff98')}}"><img src="{{ url_for('static', filename='images/uploads/easter-egg-rocky-road.jpg') }}"></a>
+                                        <a class="carousel-item"
+                                            href="{{url_for('view_recipe', recipe_id='5e8073b7fe17ddf4e49f3f07')}}"><img src="{{ url_for('static', filename='images/uploads/iced-easter-biscuits.jpg') }}"></a>
+            </div>
+        </div>
     </div>
 </div>
-    </div>
+<div class="parallax-container">
+    <div class="parallax"><img src="{{ url_for('static', filename='images/uploads/meringue-next-cheesecake.jpg') }}"></div>
 </div>
-
 
 		{% endblock %}

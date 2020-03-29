@@ -20,7 +20,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 def allowed_image(filename):
 
     # We only want files with a . in the filename
-    if "." not in filename:
+    if not "." in filename:
         return False
 
     # Split the extension from the filename
@@ -91,10 +91,10 @@ def edit_recipe(recipe_id):
 
 @app.route('/update_recipe/<recipe_id>', methods=['GET', 'POST'])
 def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
     if request.method == "POST":
         file = request.files["file"]
         file.save(os.path.join(app.config["IMAGE_UPLOADS"], file.filename))
-    recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
         {
             'add_photo': request.form.get('add_photo'),

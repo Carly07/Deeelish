@@ -47,7 +47,7 @@
         {% for recipe in recipes %}
         <li>
             <div class="collapsible-header">
-                    <div class="col s8 recipe-name-col yellow-text text-darken-1"><strong>{{recipe.recipe_name }}</strong></div>
+                    <div class="col s8 recipe-name-col yellow-text text-darken-1"><strong>{{recipe.recipe_name.title()}}</strong></div>
                     <div class="col s3">{{recipe.meal_course_type}} <span class="yellow-text text-darken-1">|</span>
                         {{recipe.cuisine}}</div>
                     <div class="col s1"><i class="material-icons yellow-text text-darken-1">expand_more</i></div>

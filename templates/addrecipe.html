@@ -8,14 +8,10 @@
 	<form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12 add-recipe-form" enctype="multipart/form-data">
 
 		<div class="row">
-			<div class="input-field col s9">
+			<div class="input-field col s12">
                 <i class="material-icons prefix">add_photo_alternate</i>
                 <label for="icon_prefix">Paste image URL here</label>
                 <input id="add_photo" name="add_photo" type="text" class="validate">
-            </div>
-            <div class="input-field col s3">
-                <a target="_blank" href="https://pasteboard.co/"
-                    class="btn waves-effect waves-light right">Select Image<i class="material-icons right">cancel</i></a>
             </div>
 		</div>
 

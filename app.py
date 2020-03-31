@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from werkzeug.utils import secure_filename
+
 from os import path
 if path.exists("env.py"):
     import env
@@ -12,26 +12,6 @@ app = Flask(__name__)
 app.SECRET_KEY = os.environ.get('SECRET_KEY')
 app.config["MONGO_DBNAME"] = 'deeelish'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-app.config["IMAGE_UPLOADS"] = "/workspace/deeelish/static/images/uploads/"
-app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-
-
-def allowed_image(filename):
-
-    # We only want files with a . in the filename
-    if "." not in filename:
-        return False
-
-    # Split the extension from the filename
-    ext = filename.rsplit(".", 1)[1]
-
-    # Check if the extension is in ALLOWED_IMAGE_EXTENSIONS
-    if ext.upper() in app.config["ALLOWED_IMAGE_EXTENSIONS"]:
-        return True
-    else:
-        return False
-
 
 mongo = PyMongo(app)
 
@@ -69,10 +49,6 @@ def add_recipe():
 @app.route('/insert_recipe', methods=['GET', 'POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
-    if request.method == "POST":
-        file = request.files["file"]
-        file.save(os.path.join(app.config["IMAGE_UPLOADS"], file.filename))
-
     recipes.insert_one(request.form.to_dict(
         {
             'add_photo': request.form.get('add_photo'),
@@ -103,10 +79,6 @@ def edit_recipe(recipe_id):
 @app.route('/update_recipe/<recipe_id>', methods=['GET', 'POST'])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
-    if request.method == "POST":
-        file = request.files["file"]
-        file.save(os.path.join(app.config["IMAGE_UPLOADS"], file.filename))
-
     recipes.update({'_id': ObjectId(recipe_id)},
         {
             'add_photo': request.form.get('add_photo'),
@@ -135,8 +107,8 @@ def delete_recipe(recipe_id):
 @app.route('/get_categories')
 def get_categories():
     return render_template("categories.html",
-    meals_courses=mongo.db.meals_courses.find().sort('meal_course_type'),
-    cuisines=mongo.db.cuisines.find().sort('cuisine'))
+    meals_courses=mongo.db.meals_courses.find().sort("meal_course_type"),
+    cuisines=mongo.db.cuisines.find().sort("cuisine"))
 
 
 @app.route('/edit_meal/<meal_id>')

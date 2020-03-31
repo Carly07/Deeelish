@@ -8,17 +8,21 @@
 	<form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12 add-recipe-form" enctype="multipart/form-data">
 
 		<div class="row">
-			<div class="input-field col s1"><i class="material-icons">add_photo_alternate</i></div>
-			<div class="file-field input-field img-icon col s11">
-				<div class="file-path-wrapper img-path"><input class="file-path validate" type="text" placeholder="Add photograph"></div>
-                <div class="btn btn-img right"><span>Select Image</span><input type="file" name="file" id="image"></div>
+			<div class="input-field col s9">
+                <i class="material-icons prefix">add_photo_alternate</i>
+                <label for="icon_prefix">Paste image URL here</label>
+                <input id="add_photo" name="add_photo" type="text" class="validate">
+            </div>
+            <div class="input-field col s3">
+                <a target="_blank" href="https://pasteboard.co/"
+                    class="btn waves-effect waves-light right">Select Image<i class="material-icons right">cancel</i></a>
             </div>
 		</div>
 
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">create</i>
-                <input id="recipe_name" name="recipe_name" type="text" class="validate">
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
                 <label for="icon_prefix">Recipe Name</label>
             </div>
         </div>
@@ -26,7 +30,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                <input id="recipe_description" name="recipe_description" type="text" class="materialize-textarea">
+                <input id="recipe_description" name="recipe_description" type="text" class="materialize-textarea" required>
                 <label for="icon_telephone">Recipe Description</label>
             </div>
         </div>
@@ -49,11 +53,11 @@
                 </select>
             </div>
             <div class="input-field col s12 m6 l3"><i class="material-icons prefix">people_outline</i>
-                <input id="serves" name="serves" type="number" class="materialize-textarea">
+                <input id="serves" name="serves" type="number" class="materialize-textarea" required>
                 <label for="serves">Serves</label>
             </div>
             <div class="input-field col s12 m6 l3"><i class="material-icons prefix">access_time</i>
-                <input id="time" name="time" type="text" class="materialize-textarea">
+                <input id="time" name="time" type="text" class="materialize-textarea" required>
                 <label for="time">Total Time</label>
             </div>
         </div>
@@ -92,7 +96,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">add_shopping_cart</i>
-                <textarea id="add_ingredients" name="add_ingredients" type="text" class="materialize-textarea"></textarea>
+                <textarea id="add_ingredients" name="add_ingredients" type="text" class="materialize-textarea" required></textarea>
                 <label for="add_ingredients">Ingredients</label>
             </div>
         </div>
@@ -100,7 +104,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">list</i>
-                <textarea id="method" name="method" type="text" class="materialize-textarea"></textarea>
+                <textarea id="method" name="method" type="text" class="materialize-textarea" required></textarea>
                 <label for="method">Method</label>
             </div>
         </div>

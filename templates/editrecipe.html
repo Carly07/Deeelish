@@ -7,28 +7,32 @@
 	<form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12 edit-recipe-form" enctype="multipart/form-data">
 
 		<div class="row">
-			<div class="input-field col s1"><i class="material-icons">add_photo_alternate</i></div>
-			<div class="file-field input-field img-icon col s11 m6 l8">
-				<div class="file-path-wrapper img-path"><input class="file-path validate" type="text" id="add_photo" name="add_photo" placeholder="Add photograph" value="{{recipe.add_photo}}"></div>
-                <div class="btn btn-img right"><span>Select Image</span><input type="file" name="file" id="image"></div>
+			<div class="input-field col s9">
+                <i class="material-icons prefix">add_photo_alternate</i>
+                <label for="icon_prefix">Paste image URL here</label>
+                <input id="add_photo" name="add_photo" type="text" class="validate" value="{{recipe.add_photo}}">
+            </div>
+            <div class="input-field col s3">
+                <a target="_blank" href="https://pasteboard.co/"
+                    class="btn waves-effect waves-light right">Select Image<i class="material-icons right">cancel</i></a>
             </div>
 		</div>
 
-				<div class="row">
-					<div class="input-field col s12">
-						<i class="material-icons prefix">create</i>
-						<input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}">
-						<label for="icon_prefix">Recipe Name</label>
-					</div>
-				</div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">create</i>
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}">
+                <label for="icon_prefix">Recipe Name</label>
+            </div>
+        </div>
 
-				<div class="row">
-					<div class="input-field col s12">
-						<i class="material-icons prefix">subject</i>
-						<textarea id="recipe_description" name="recipe_description" type="text" class="materialize-textarea">{{recipe.recipe_description}}</textarea>
-						<label for="icon_telephone">Recipe Description</label>
-					</div>
-				</div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea id="recipe_description" name="recipe_description" type="text" class="materialize-textarea">{{recipe.recipe_description}}</textarea>
+                <label for="icon_telephone">Recipe Description</label>
+            </div>
+        </div>
 
 				<div class="row">
 					<div class="input-field col s12 m6 l3">

@@ -20,7 +20,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 def allowed_image(filename):
 
     # We only want files with a . in the filename
-    if not "." in filename:
+    if "." not in filename:
         return False
 
     # Split the extension from the filename
@@ -69,20 +69,26 @@ def add_recipe():
 @app.route('/insert_recipe', methods=['GET', 'POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to_dict())
     if request.method == "POST":
         file = request.files["file"]
-        if file.filename == "":
-            print("No filename")
-            return redirect(request.url)
-        if not allowed_image(file.filename):
-            print("Image extension not allowed")
-            return redirect(request.url)
-        else:
-            filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
-        print("Image saved")
-        return redirect(request.url)
+        file.save(os.path.join(app.config["IMAGE_UPLOADS"], file.filename))
+
+    recipes.insert_one(request.form.to_dict(
+        {
+            'add_photo': request.form.get('add_photo'),
+            'recipe_name': request.form.get('recipe_name'),
+            'recipe_description': request.form.get('recipe_description'),
+            'meal_course_type': request.form.get('meal_course_type'),
+            'cuisine': request.form.get('cuisine'),
+            'serves': request.form.get('serves'),
+            'time': request.form.get('time'),
+            'is_vegetarian': request.form.get('is_vegetarian'),
+            'is_vegan': request.form.get('is_vegan'),
+            'is_glutenFree': request.form.get('is_glutenFree'),
+            'is_dairyFree': request.form.get('is_dairyFree'),
+            'add_ingredients': request.form.get('add_ingredients'),
+            'method': request.form.get('method')
+        }))
     return redirect(url_for('get_recipes'))
 
 
@@ -100,6 +106,7 @@ def update_recipe(recipe_id):
     if request.method == "POST":
         file = request.files["file"]
         file.save(os.path.join(app.config["IMAGE_UPLOADS"], file.filename))
+
     recipes.update({'_id': ObjectId(recipe_id)},
         {
             'add_photo': request.form.get('add_photo'),

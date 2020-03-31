@@ -66,11 +66,20 @@
 <div class="row">
     <div class="col s12 m4 l3">
 		<h5 class="ingredients">Ingredients</h5>
-        {{recipe.add_ingredients}}
+        {% for ingredient in recipe.add_ingredients.splitlines() %}
+            <ul>
+                <li>{{ingredient}}</li>
+            </ul>
+        {% endfor %}
     </div>
 	<div class="col s12 m8 l9">
 		<h5 class="method">Method</h5>
-        {{recipe.method}}
+       {% for step in recipe.method.splitlines() %}
+        <ul>
+            <li>{{step}}</li>
+        </ul>
+    {% endfor %}
+
 	</div>
 </div>
 <div class="row">

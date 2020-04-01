@@ -42,8 +42,8 @@ def view_recipe(recipe_id):
 @app.route('/add_recipe')
 def add_recipe():
     return render_template('addrecipe.html',
-        meals_courses=mongo.db.meals_courses.find(),
-        cuisines=mongo.db.cuisines.find())
+                           meals_courses=mongo.db.meals_courses.find(),
+                           cuisines=mongo.db.cuisines.find())
 
 
 @app.route('/insert_recipe', methods=['GET', 'POST'])
@@ -73,28 +73,30 @@ def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_meals_courses = mongo.db.meals_courses.find()
     all_cuisines = mongo.db.cuisines.find()
-    return render_template('editrecipe.html', recipe=the_recipe, meals_courses=all_meals_courses, cuisines=all_cuisines)
+    return render_template('editrecipe.html', recipe=the_recipe,
+                           meals_courses=all_meals_courses,
+                           cuisines=all_cuisines)
 
 
 @app.route('/update_recipe/<recipe_id>', methods=['GET', 'POST'])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
-        {
-            'add_photo': request.form.get('add_photo'),
-            'recipe_name': request.form.get('recipe_name'),
-            'recipe_description': request.form.get('recipe_description'),
-            'meal_course_type': request.form.get('meal_course_type'),
-            'cuisine': request.form.get('cuisine'),
-            'serves': request.form.get('serves'),
-            'time': request.form.get('time'),
-            'is_vegetarian': request.form.get('is_vegetarian'),
-            'is_vegan': request.form.get('is_vegan'),
-            'is_glutenFree': request.form.get('is_glutenFree'),
-            'is_dairyFree': request.form.get('is_dairyFree'),
-            'add_ingredients': request.form.get('add_ingredients'),
-            'method': request.form.get('method')
-        })
+                   {
+        'add_photo': request.form.get('add_photo'),
+        'recipe_name': request.form.get('recipe_name'),
+        'recipe_description': request.form.get('recipe_description'),
+        'meal_course_type': request.form.get('meal_course_type'),
+        'cuisine': request.form.get('cuisine'),
+        'serves': request.form.get('serves'),
+        'time': request.form.get('time'),
+        'is_vegetarian': request.form.get('is_vegetarian'),
+        'is_vegan': request.form.get('is_vegan'),
+        'is_glutenFree': request.form.get('is_glutenFree'),
+        'is_dairyFree': request.form.get('is_dairyFree'),
+        'add_ingredients': request.form.get('add_ingredients'),
+        'method': request.form.get('method')
+    })
     return redirect(url_for('get_recipes'))
 
 
@@ -107,29 +109,29 @@ def delete_recipe(recipe_id):
 @app.route('/get_categories')
 def get_categories():
     return render_template("categories.html",
-    meals_courses=mongo.db.meals_courses.find().sort("meal_course_type"),
-    cuisines=mongo.db.cuisines.find().sort("cuisine"))
+                           meals_courses=mongo.db.meals_courses.find().sort("meal_course_type"),
+                           cuisines=mongo.db.cuisines.find().sort("cuisine"))
 
 
 @app.route('/edit_meal/<meal_id>')
 def edit_meal(meal_id):
     return render_template('editmealcat.html',
-            meal=mongo.db.meals_courses.find_one(
-                {'_id': ObjectId(meal_id)}))
+                           meal=mongo.db.meals_courses.find_one(
+                               {'_id': ObjectId(meal_id)}))
 
 
 @app.route('/edit_cuisine/<cuis_id>')
 def edit_cuisine(cuis_id):
     return render_template('editcuisinecat.html',
-            cuis=mongo.db.cuisines.find_one(
-                {'_id': ObjectId(cuis_id)}))
+                           cuis=mongo.db.cuisines.find_one(
+                               {'_id': ObjectId(cuis_id)}))
 
 
 @app.route('/update_meal/<meal_id>', methods=['POST'])
 def update_meal(meal_id):
     meals = mongo.db.meals_courses
     meals.update({'_id': ObjectId(meal_id)},
-        {'meal_course_type': request.form.get('meal_course_type')})
+                 {'meal_course_type': request.form.get('meal_course_type')})
     return redirect(url_for('get_categories'))
 
 

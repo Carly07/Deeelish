@@ -22,18 +22,22 @@ body {
 
 /*------------Index Page-----------*/
 
-#cover-image {
-    height: 350px;
-}
-
-.parallax-container {
-      height: 350px;
-      width: 100%;
-    }
-
 @media (max-width: 575.98px) {
     .parallax-container {
         height: 200px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .parallax-container {
+        height: 350px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1441px) {
+    .parallax-container {
+        height: 1000px;
     }
 }
 

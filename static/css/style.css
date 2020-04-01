@@ -22,9 +22,13 @@ body {
 
 /*------------Index Page-----------*/
 
-@media only screen and (max-width: 600px) {
+.parallax-container {
+      height: 350px;
+    }
+
+@media (max-width: 575.98px) {
     .parallax-container {
-        height: 150px;
+        height: 200px;
     }
 }
 

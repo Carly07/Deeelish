@@ -22,18 +22,19 @@ body {
 
 /*------------Index Page-----------*/
 
+#cover-image {
+    height: 350px;
+}
+
 .parallax-container {
       height: 350px;
+      width: 100%;
     }
 
 @media (max-width: 575.98px) {
     .parallax-container {
         height: 200px;
     }
-}
-
-.parallax-container {
-    width: 100%;
 }
 
 .welcome-para {
@@ -329,6 +330,12 @@ img {
 .footer-row {
     margin-bottom: 0px;
     padding: 10px 0px;
+}
+
+@media (max-width: 575.98px) {
+    .footer-row {
+        text-align: center;
+    }
 }
 
 footer ul li{

@@ -48,6 +48,10 @@ def add_recipe():
 
 @app.route('/insert_recipe', methods=['GET', 'POST'])
 def insert_recipe():
+    cuisine = request.form.get('cuisine')
+    cuisine_entry = mongo.db.cuisines.find_one({"cuisine": cuisine})
+    cuisine_id = cuisine_entry["_id"]
+
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict(
         {
@@ -55,7 +59,7 @@ def insert_recipe():
             'recipe_name': request.form.get('recipe_name'),
             'recipe_description': request.form.get('recipe_description'),
             'meal_course_type': request.form.get('meal_course_type'),
-            'cuisine': request.form.get('cuisine'),
+            'cuisine': cuisine_id,
             'serves': request.form.get('serves'),
             'time': request.form.get('time'),
             'is_vegetarian': request.form.get('is_vegetarian'),

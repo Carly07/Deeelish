@@ -21,7 +21,7 @@
                 <label for="meal_course">Meal Time or Course</label>
                 <select id="meal_course" name="meal_course" class="grey-text text-darken-2">
                     <option class="filter-dropdown grey-text text-darken-2" value="all">All</option>
-                {% for meals in meals_courses %}
+                {% for meals in meal_course_types %}
                     <option value="{{meals.meal_course_type}}">{{meals.meal_course_type}}</option>
                 {% endfor %}
                 </select>
@@ -48,8 +48,19 @@
         <li>
             <div class="collapsible-header">
                     <div class="col s8 recipe-name-col yellow-text text-darken-1"><strong>{{recipe.recipe_name.title()}}</strong></div>
-                    <div class="col s3">{{recipe.meal_course_type}} <span class="yellow-text text-darken-1">|</span>
-                        {{recipe.cuisine}}</div>
+                        <div class="col s3">
+                            {% for meal_course_type in meal_course_types %}
+                                {% if recipe.meal_course_type|string == meal_course_type["_id"]|string %}
+                                    {{meal_course_type['meal_course_type']}}
+                                {% endif %}
+                            {% endfor %}
+                            <span class="yellow-text text-darken-1">|</span>
+                            {% for cuisine in cuisines %}
+                                {% if recipe.cuisine|string == cuisine["_id"]|string %}
+                                    {{cuisine['cuisine']}}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     <div class="col s1"><i class="material-icons yellow-text text-darken-1">expand_more</i></div>
             </div>
             <div class="collapsible-body">

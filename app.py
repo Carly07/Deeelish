@@ -29,7 +29,10 @@ def tips_technique():
 
 @app.route('/get_recipes')
 def get_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+    recipes=mongo.db.recipes.find()
+    meal_course_types = [mct for mct in mongo.db.meals_courses.find({}, {"meal_course_type": 1})]
+    cuisines = [cuisine for cuisine in mongo.db.cuisines.find({}, {"cuisine": 1})]
+    return render_template("recipes.html", recipes=recipes, meal_course_types=meal_course_types, cuisines=cuisines)
 
 
 @app.route('/view_recipe/<recipe_id>')

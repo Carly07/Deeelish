@@ -36,7 +36,12 @@ def get_recipes():
 def view_recipe(recipe_id):
     recipes = mongo.db.recipes
     the_recipe = recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template('viewrecipe.html', recipe=the_recipe)
+    meal_name = mongo.db.meals_courses.find_one(
+        {"_id": ObjectId(the_recipe.get("meal_course_type"))})["meal_course_type"]
+    cuisine_name = mongo.db.cuisines.find_one(
+        {"_id": ObjectId(the_recipe.get("cuisine"))})["cuisine"]
+    return render_template('viewrecipe.html', recipe=the_recipe,
+                           cuisine=cuisine_name, meal_course_type=meal_name)
 
 
 @app.route('/add_recipe')
@@ -48,50 +53,65 @@ def add_recipe():
 
 @app.route('/insert_recipe', methods=['GET', 'POST'])
 def insert_recipe():
-    cuisine = request.form.get('cuisine')
-    cuisine_entry = mongo.db.cuisines.find_one({"cuisine": cuisine})
-    cuisine_id = cuisine_entry["_id"]
+    meal_course_type = request.form.get('meal_course_type')
+    meal_id = mongo.db.meals_courses.find_one(
+        {"meal_course_type": meal_course_type})["_id"]
 
-    recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to_dict(
-        {
-            'add_photo': request.form.get('add_photo'),
-            'recipe_name': request.form.get('recipe_name'),
-            'recipe_description': request.form.get('recipe_description'),
-            'meal_course_type': request.form.get('meal_course_type'),
-            'cuisine': cuisine_id,
-            'serves': request.form.get('serves'),
-            'time': request.form.get('time'),
-            'is_vegetarian': request.form.get('is_vegetarian'),
-            'is_vegan': request.form.get('is_vegan'),
-            'is_glutenFree': request.form.get('is_glutenFree'),
-            'is_dairyFree': request.form.get('is_dairyFree'),
-            'add_ingredients': request.form.get('add_ingredients'),
-            'method': request.form.get('method')
-        }))
+    cuisine = request.form.get('cuisine')
+    cuisine_id = mongo.db.cuisines.find_one({"cuisine": cuisine})["_id"]
+
+    recipe = {
+        'add_photo': request.form.get('add_photo'),
+        'recipe_name': request.form.get('recipe_name'),
+        'recipe_description': request.form.get('recipe_description'),
+        'meal_course_type': meal_id,
+        'cuisine': cuisine_id,
+        'serves': request.form.get('serves'),
+        'time': request.form.get('time'),
+        'is_vegetarian': request.form.get('is_vegetarian'),
+        'is_vegan': request.form.get('is_vegan'),
+        'is_glutenFree': request.form.get('is_glutenFree'),
+        'is_dairyFree': request.form.get('is_dairyFree'),
+        'add_ingredients': request.form.get('add_ingredients'),
+        'method': request.form.get('method')
+    }
+    recipes = mongo.db.recipes.insert_one(recipe)
+
     return redirect(url_for('get_recipes'))
 
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    all_meals_courses = mongo.db.meals_courses.find()
-    all_cuisines = mongo.db.cuisines.find()
+    meal_name = mongo.db.meals_courses.find_one(
+        {"_id": ObjectId(the_recipe.get("meal_course_type"))})["meal_course_type"]
+    cuisine_name = mongo.db.cuisines.find_one(
+        {"_id": ObjectId(the_recipe.get("cuisine"))})["cuisine"]
+
     return render_template('editrecipe.html', recipe=the_recipe,
-                           meals_courses=all_meals_courses,
-                           cuisines=all_cuisines)
+                           meals_courses=mongo.db.meals_courses.find(),
+                           cuisines=mongo.db.cuisines.find(),
+                           cuisine=cuisine_name,
+                           meal_course_type=meal_name)
 
 
 @app.route('/update_recipe/<recipe_id>', methods=['GET', 'POST'])
 def update_recipe(recipe_id):
+    meal_course_type = request.form.get('meal_course_type')
+    meal_id = mongo.db.meals_courses.find_one(
+        {"meal_course_type": meal_course_type})["_id"]
+
+    cuisine = request.form.get('cuisine')
+    cuisine_id = mongo.db.cuisines.find_one({"cuisine": cuisine})["_id"]
+
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
                    {
         'add_photo': request.form.get('add_photo'),
         'recipe_name': request.form.get('recipe_name'),
         'recipe_description': request.form.get('recipe_description'),
-        'meal_course_type': request.form.get('meal_course_type'),
-        'cuisine': request.form.get('cuisine'),
+        'meal_course_type': meal_id,
+        'cuisine': cuisine_id,
         'serves': request.form.get('serves'),
         'time': request.form.get('time'),
         'is_vegetarian': request.form.get('is_vegetarian'),

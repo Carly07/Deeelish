@@ -36,8 +36,8 @@
 						<select id="meals_courses" name="meal_course_type">
                     <option value="" disabled selected>Mealtimes and Courses</option>
                     {% for meals in meals_courses %}
-                        {% if meals.meal_course_type == recipe.meal_course_type %}
-                        <option value="{{meals.meal_course_type}}" selected >{{meals.meal_course_type}}</option>
+                        {% if meals.meal_course_type == meal_course_type %}
+                        <option value="{{meal_course_type}}" selected >{{meal_course_type}}</option>
                         {% else %}
                         <option value="{{meals.meal_course_type}}">{{meals.meal_course_type}}</option>
                     {% endif %}
@@ -49,8 +49,8 @@
 						<select id="cuisines" name="cuisine">
                     <option value="" disabled selected>Cuisines</option>
                     {% for cuis in cuisines %}
-                        {% if cuis.cuisine == recipe.cuisine %}
-                        <option value="{{cuis.cuisine}}" selected >{{cuis.cuisine}}</option>
+                        {% if cuis.cuisine == cuisine %}
+                        <option value="{{cuisine}}" selected >{{cuisine}}</option>
                         {% else %}
                         <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>
                         {% endif %}

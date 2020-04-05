@@ -55,6 +55,24 @@
                 <li><a href="{{url_for('add_category')}}">Add Categories</a></li>
                 <li><a href="{{url_for('tips_technique')}}">Tips & Techniques</a></li>
             </ul>
+
+
+            <!-- Display messages pushed with 'flash()' -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    
+                    <div class="row">
+                        <div class="flash-msgs card-panel yellow darken-1">
+                            {% for message in messages %}
+                                <div class="flash-message grey-text text-darken-3 center-align" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                {% endif %}
+            {% endwith %}
 	</header>
     <main>
 	

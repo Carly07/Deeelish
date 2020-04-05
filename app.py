@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -10,13 +10,14 @@ if path.exists("env.py"):
 app = Flask(__name__)
 
 app.SECRET_KEY = os.environ.get('SECRET_KEY')
+app.secret_key = 'deliciousSecret'
 app.config["MONGO_DBNAME"] = 'deeelish'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
 
-#---------Index Page---------------------
+# ---------INDEX PAGE FUNCTIONALITY---------------------
 
 @app.route('/')
 @app.route('/index')
@@ -24,19 +25,19 @@ def index():
     return render_template("index.html")
 
 
-#---------Tips & Techniques Page---------------------
+# ---------TIPS AND TECHNIQUES PAGE FUNCTIONALITY---------------------
 
 @app.route('/tips_technique')
 def tips_technique():
     return render_template("tips.html")
 
 
-#---------Discover Recipes Page Functionality---------------------
+# ----------------DISCOVER RECIPES PAGE FUNCTIONALITY----------------
 
 @app.route('/get_recipes')
 def get_recipes():
 
-#---------------Filter Function------------------
+    # ------------Filter Function------------
 
     filter = {}
     suitability = request.args.get('suitability')
@@ -49,18 +50,28 @@ def get_recipes():
     elif suitability == 'dairy':
         filter['is_dairyFree'] = True
     print(filter)
+
+    meal_course = request.args.get('meal_course')
+    if meal_course == '{{meals.meal_course_type}}':
+        filter['meal_course_type'] = '{{meals.meal_course_type}}'
+    print(filter)
+
     if filter:
         recipes = mongo.db.recipes.find(filter)
-        meal_course_types = [mct for mct in mongo.db.meals_courses.find({}, {"meal_course_type": 1})]
-        cuisines = [cuisine for cuisine in mongo.db.cuisines.find({}, {"cuisine": 1})]
+        meal_course_types = [mct for mct in mongo.db.meals_courses.find(
+            {}, {"meal_course_type": 1})]
+        cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
+            {}, {"cuisine": 1})]
     else:
-        recipes=mongo.db.recipes.find()
-        meal_course_types = [mct for mct in mongo.db.meals_courses.find({}, {"meal_course_type": 1})]
-        cuisines = [cuisine for cuisine in mongo.db.cuisines.find({}, {"cuisine": 1})]
+        recipes = mongo.db.recipes.find()
+        meal_course_types = [mct for mct in mongo.db.meals_courses.find(
+            {}, {"meal_course_type": 1})]
+        cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
+            {}, {"cuisine": 1})]
     return render_template("recipes.html", recipes=recipes, meal_course_types=meal_course_types, cuisines=cuisines)
 
 
-#---------View Recipe Page Functionality---------------------
+# ----------------VIEW RECIPE PAGE FUNCTIONALITY----------------
 
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
@@ -74,7 +85,7 @@ def view_recipe(recipe_id):
                            cuisine=cuisine_name, meal_course_type=meal_name)
 
 
-#---------Add Recipe Page Functionality---------------------
+# ----------------ADD RECIPE PAGE FUNCTIONALITY----------------
 
 @app.route('/add_recipe')
 def add_recipe():
@@ -83,10 +94,11 @@ def add_recipe():
                            cuisines=mongo.db.cuisines.find())
 
 
-#---------Insert Recipe Functionality---------------------
+# ----------------INSERT RECIPE FUNCTIONALITY----------------
 
 @app.route('/insert_recipe', methods=['GET', 'POST'])
 def insert_recipe():
+    # ---------Get ObjectId for Categories-------------
     meal_course_type = request.form.get('meal_course_type')
     meal_id = mongo.db.meals_courses.find_one(
         {"meal_course_type": meal_course_type})["_id"]
@@ -94,6 +106,7 @@ def insert_recipe():
     cuisine = request.form.get('cuisine')
     cuisine_id = mongo.db.cuisines.find_one({"cuisine": cuisine})["_id"]
 
+    # ---------Change string values to boolean----------
     my_user_data = request.form.to_dict()
 
     if 'is_vegetarian' in my_user_data:
@@ -101,7 +114,7 @@ def insert_recipe():
     else:
         my_user_data['is_vegetarian'] = False
     my_user_data['is_vegetarian']
-    
+
     if 'is_vegan' in my_user_data:
         my_user_data['is_vegan'] = True
     else:
@@ -113,13 +126,14 @@ def insert_recipe():
     else:
         my_user_data['is_glutenFree'] = False
     my_user_data['is_glutenFree']
-    
+
     if 'is_dairyFree' in my_user_data:
         my_user_data['is_dairyFree'] = True
     else:
         my_user_data['is_dairyFree'] = False
     my_user_data['is_dairyFree']
 
+    # ---------Save to database--------------
     recipe = {
         'add_photo': request.form.get('add_photo'),
         'recipe_name': request.form.get('recipe_name'),
@@ -136,11 +150,11 @@ def insert_recipe():
         'method': request.form.get('method')
     }
     recipes = mongo.db.recipes.insert_one(recipe)
-
+    flash('Success! New recipe added to the database')
     return redirect(url_for('get_recipes'))
 
 
-#---------Edit Recipe Page Functionality---------------------
+# ----------------EDIT RECIPE PAGE FUNCTIONALITY----------------
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
@@ -157,10 +171,11 @@ def edit_recipe(recipe_id):
                            meal_course_type=meal_name)
 
 
-#---------Update Recipe Functionality---------------------
+# ----------------UPDATE RECIPE FUNCTIONALITY----------------
 
 @app.route('/update_recipe/<recipe_id>', methods=['GET', 'POST'])
 def update_recipe(recipe_id):
+    # ---------Get ObjectId for Categories-------------
     meal_course_type = request.form.get('meal_course_type')
     meal_id = mongo.db.meals_courses.find_one(
         {"meal_course_type": meal_course_type})["_id"]
@@ -168,6 +183,7 @@ def update_recipe(recipe_id):
     cuisine = request.form.get('cuisine')
     cuisine_id = mongo.db.cuisines.find_one({"cuisine": cuisine})["_id"]
 
+    # ---------Change string values to boolean----------
     my_user_data = request.form.to_dict()
 
     if 'is_vegetarian' in my_user_data:
@@ -175,7 +191,7 @@ def update_recipe(recipe_id):
     else:
         my_user_data['is_vegetarian'] = False
     my_user_data['is_vegetarian']
-    
+
     if 'is_vegan' in my_user_data:
         my_user_data['is_vegan'] = True
     else:
@@ -187,13 +203,14 @@ def update_recipe(recipe_id):
     else:
         my_user_data['is_glutenFree'] = False
     my_user_data['is_glutenFree']
-    
+
     if 'is_dairyFree' in my_user_data:
         my_user_data['is_dairyFree'] = True
     else:
         my_user_data['is_dairyFree'] = False
     my_user_data['is_dairyFree']
 
+    # ---------Save to database--------------
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
                    {
@@ -211,18 +228,20 @@ def update_recipe(recipe_id):
         'add_ingredients': request.form.get('add_ingredients'),
         'method': request.form.get('method')
     })
+    flash('Success! The recipe has been updated')
     return redirect(url_for('get_recipes'))
 
 
-#---------Delete Recipe Functionality---------------------
+# ----------------DELETE RECIPE FUNCTIONALITY----------------
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+    flash('Success! Recipe deleted')
     return redirect(url_for('get_recipes'))
 
 
-#---------Browse Categories Page Functionality---------------------
+# ----------------BROWSE CATEGORIES PAGE FUNCTIONALITY----------------
 
 @app.route('/get_categories')
 def get_categories():
@@ -231,7 +250,7 @@ def get_categories():
                            cuisines=mongo.db.cuisines.find().sort("cuisine"))
 
 
-#---------Edit Category Pages Functionality---------------------
+# ----------------EDIT CATEGORY PAGE FUNCTIONALITY----------------
 
 @app.route('/edit_meal/<meal_id>')
 def edit_meal(meal_id):
@@ -247,13 +266,14 @@ def edit_cuisine(cuis_id):
                                {'_id': ObjectId(cuis_id)}))
 
 
-#---------Update Category Functionality---------------------
+# ----------------UPDATE CATEGORY PAGE FUNCTIONALITY----------------
 
 @app.route('/update_meal/<meal_id>', methods=['POST'])
 def update_meal(meal_id):
     meals = mongo.db.meals_courses
     meals.update({'_id': ObjectId(meal_id)},
                  {'meal_course_type': request.form.get('meal_course_type')})
+    flash('Success! The Meals & Courses category has been updated')
     return redirect(url_for('get_categories'))
 
 
@@ -262,36 +282,48 @@ def update_cuisine(cuis_id):
     mongo.db.cuisines.update(
         {'_id': ObjectId(cuis_id)},
         {'cuisine': request.form.get('cuisine')})
+    flash('Success! The Cuisine category has been updated')
     return redirect(url_for('get_categories'))
 
 
-#---------Delete Categories Functionality---------------------
+# ----------------DELETE CATEGORY FUNCTIONALITY----------------
 
 @app.route('/delete_meal/<meal_id>')
 def delete_meal(meal_id):
-    mongo.db.meals_courses.remove({'_id': ObjectId(meal_id)})
+    recipes = mongo.db.recipes.find({"meal_course_type": ObjectId(meal_id)})
+    if recipes.count() == 0:
+        mongo.db.meals_courses.remove({'_id': ObjectId(meal_id)})
+        flash('Success! Category deleted from Meals and Courses')
+    else:
+        flash('Sorry, this category is in use and cannot be deleted at this time.')
     return redirect(url_for('get_categories'))
 
 
 @app.route('/delete_cuisine/<cuis_id>')
 def delete_cuisine(cuis_id):
-    mongo.db.cuisines.remove({'_id': ObjectId(cuis_id)})
+    recipes = mongo.db.recipes.find({"cuisine": ObjectId(cuis_id)})
+    if recipes.count() == 0:
+        mongo.db.cuisines.remove({'_id': ObjectId(cuis_id)})
+        flash('Success! Category deleted from Cuisines.')
+    else:
+        flash('Sorry, this category is in use and cannot be deleted at this time.')
     return redirect(url_for('get_categories'))
 
 
-#---------Add Category Page Functionality---------------------
+# ----------------ADD CATEGORY PAGE FUNCTIONALITY----------------
 
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
 
 
-#---------Insert Category Functionality---------------------
+# ----------------INSERT CATEGORY FUNCTIONALITY----------------
 
 @app.route('/insert_meal', methods=['POST'])
 def insert_meal():
     meal_doc = {'meal_course_type': request.form.get('meal_course_type')}
     mongo.db.meals_courses.insert_one(meal_doc)
+    flash('Success! New category added to Meals and Courses')
     return redirect(url_for('get_categories'))
 
 
@@ -299,14 +331,15 @@ def insert_meal():
 def insert_cuisine():
     cuisine_doc = {'cuisine': request.form.get('cuisine')}
     mongo.db.cuisines.insert_one(cuisine_doc)
+    flash('Success! New category added to Cuisines')
     return redirect(url_for('get_categories'))
 
 
-#---------END OF FUNCTION DEFINITIONS---------------------
+# ----------------END OF FUNCTION DEFINITIONS----------------
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
 
-#---------END OF app.py---------------------
+# ----------------END OF app.py----------------

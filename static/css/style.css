@@ -20,6 +20,16 @@ body {
     letter-spacing: 1px;
 }
 
+/*------------Flash Messages-----------*/
+
+.flash-msgs {
+    height: 70px !important;
+}
+
+.flash-message {
+    font-size: 1.3rem;
+}
+
 /*------------Index Page-----------*/
 
 @media (max-width: 575.98px) {

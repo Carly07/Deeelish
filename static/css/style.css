@@ -22,14 +22,20 @@ body {
 
 /*------------Flash Messages-----------*/
 
-.flash-msgs {
-    height: 70px !important;
+.card-panel {
+    padding: 15px !important;
+    height: 80px !important;
 }
 
 .flash-message {
     font-size: 1.3rem;
 }
 
+@media (min-width: 601px) {
+    .flash-msgs {
+        height: 60px !important;
+    }
+}
 /*------------Index Page-----------*/
 
 @media (max-width: 575.98px) {

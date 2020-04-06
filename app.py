@@ -341,17 +341,29 @@ def add_category():
 
 @app.route('/insert_meal', methods=['POST'])
 def insert_meal():
-    meal_doc = {'meal_course_type': request.form.get('meal_course_type')}
-    mongo.db.meals_courses.insert_one(meal_doc)
-    flash('Success! New category added to Meals and Courses')
+    new_meal = request.form.to_dict()
+    newCat = new_meal["meal_course_type"]
+    mealsCat = mongo.db.meals_courses
+    # Only add if not already in collection
+    if mealsCat.count({"meal_course_type": newCat}) == 0:
+        mongo.db.meals_courses.insert_one(new_meal)
+        flash('Success! New category added to Meals and Courses')
+    else:
+        flash('Oops! Category already exists')
     return redirect(url_for('get_categories'))
 
 
 @app.route('/insert_cuisine', methods=['POST'])
 def insert_cuisine():
-    cuisine_doc = {'cuisine': request.form.get('cuisine')}
-    mongo.db.cuisines.insert_one(cuisine_doc)
-    flash('Success! New category added to Cuisines')
+    new_cuisine = request.form.to_dict()
+    newCat = new_cuisine["cuisine"]
+    cuisineCat = mongo.db.cuisines
+    # Only add if not already in collection
+    if cuisineCat.count({"cuisine": newCat}) == 0:
+        mongo.db.cuisines.insert_one(new_cuisine)
+        flash('Success! New category added to Cuisines')
+    else:
+        flash('Oops! Category already exists')
     return redirect(url_for('get_categories'))
 
 

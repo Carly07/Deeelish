@@ -55,13 +55,15 @@ def get_recipes():
     if meal_course == 'all':
         recipes = mongo.db.recipes.find()
     else:
-        recipes = mongo.db.recipes.find({'meal_course_type': ObjectId(meal_course)})
+        filter['meal_course_type'] = ObjectId(meal_course)
+        #recipes = mongo.db.recipes.find({'meal_course_type': ObjectId(meal_course)})
 
     cuisine = request.args.get('cuisine')
     if cuisine == 'all':
         recipes = mongo.db.recipes.find()
     else:
-        recipes = mongo.db.recipes.find({'cuisine': ObjectId(cuisine)})
+        filter['cuisine'] = ObjectId(cuisine)
+        #recipes = mongo.db.recipes.find({'cuisine': ObjectId(cuisine)})
 
     if filter:
         recipes = mongo.db.recipes.find(filter)
@@ -70,7 +72,7 @@ def get_recipes():
         cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
             {}, {"cuisine": 1})]
     else:
-        # recipes = mongo.db.recipes.find()
+        recipes = mongo.db.recipes.find()
         meal_course_types = [mct for mct in mongo.db.meals_courses.find(
             {}, {"meal_course_type": 1})]
         cuisines = [cuisine for cuisine in mongo.db.cuisines.find(

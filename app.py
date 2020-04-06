@@ -41,42 +41,53 @@ def get_recipes():
 
     filter = {}
     suitability = request.args.get('suitability')
-    if suitability == 'vegetarian':
-        filter['is_vegetarian'] = True
-    elif suitability == 'vegan':
-        filter['is_vegan'] = True
-    elif suitability == 'gluten':
-        filter['is_glutenFree'] = True
-    elif suitability == 'dairy':
-        filter['is_dairyFree'] = True
-    print(filter)
-
-    meal_course = request.args.get('meal_course')
-    if meal_course == 'all':
-        recipes = mongo.db.recipes.find()
-    else:
-        filter['meal_course_type'] = ObjectId(meal_course)
-        #recipes = mongo.db.recipes.find({'meal_course_type': ObjectId(meal_course)})
-
-    cuisine = request.args.get('cuisine')
-    if cuisine == 'all':
-        recipes = mongo.db.recipes.find()
-    else:
-        filter['cuisine'] = ObjectId(cuisine)
-        #recipes = mongo.db.recipes.find({'cuisine': ObjectId(cuisine)})
-
-    if filter:
-        recipes = mongo.db.recipes.find(filter)
-        meal_course_types = [mct for mct in mongo.db.meals_courses.find(
-            {}, {"meal_course_type": 1})]
-        cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
-            {}, {"cuisine": 1})]
-    else:
+    if request.args.get('suitability') is None:
         recipes = mongo.db.recipes.find()
         meal_course_types = [mct for mct in mongo.db.meals_courses.find(
             {}, {"meal_course_type": 1})]
         cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
             {}, {"cuisine": 1})]
+        return render_template("recipes.html", recipes=recipes, meal_course_types=meal_course_types, cuisines=cuisines)
+
+    else:
+        if suitability == 'vegetarian':
+            filter['is_vegetarian'] = True
+        elif suitability == 'vegan':
+            filter['is_vegan'] = True
+        elif suitability == 'gluten':
+            filter['is_glutenFree'] = True
+        elif suitability == 'dairy':
+            filter['is_dairyFree'] = True
+            print("first block has run")
+
+        meal_course = request.args.get('meal_course')
+        if meal_course == 'all':
+            recipes = mongo.db.recipes.find()
+        else:
+            filter['meal_course_type'] = ObjectId(meal_course)
+            print("second block has run")
+
+        cuisine = request.args.get('cuisine')
+        if cuisine == 'all':
+            recipes = mongo.db.recipes.find()
+        else:
+            filter['cuisine'] = ObjectId(cuisine)
+            print("third block has run")
+
+        if filter:
+            print("if filter is true")
+            recipes = mongo.db.recipes.find(filter)
+            meal_course_types = [mct for mct in mongo.db.meals_courses.find(
+                {}, {"meal_course_type": 1})]
+            cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
+                {}, {"cuisine": 1})]
+        else:
+            print("if filter not true - else has run")
+            recipes = mongo.db.recipes.find()
+            meal_course_types = [mct for mct in mongo.db.meals_courses.find(
+                {}, {"meal_course_type": 1})]
+            cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
+                {}, {"cuisine": 1})]
     return render_template("recipes.html", recipes=recipes, meal_course_types=meal_course_types, cuisines=cuisines)
 
 

@@ -22,7 +22,7 @@
                 <select id="meal_course" name="meal_course" class="grey-text text-darken-2">
                     <option class="filter-dropdown grey-text text-darken-2" value="all">All</option>
                 {% for meals in meal_course_types %}
-                    <option value="{{meals.meal_course_type}}">{{meals.meal_course_type}}</option>
+                    <option value="{{meals._id}}">{{meals.meal_course_type}}</option>
                 {% endfor %}
                 </select>
             </div>
@@ -31,7 +31,7 @@
                 <select id="cuisine" name="cuisine" class="grey-text text-darken-2">
                     <option class="filter-dropdown grey-text text-darken-2" value="all">All</option>
                 {% for cuis in cuisines %}
-                    <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>
+                    <option value="{{cuis._id}}">{{cuis.cuisine}}</option>
                 {% endfor %}
                 </select>
             </div>

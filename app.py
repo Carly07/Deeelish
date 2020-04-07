@@ -290,18 +290,27 @@ def edit_cuisine(cuis_id):
 
 @app.route('/update_meal/<meal_id>', methods=['POST'])
 def update_meal(meal_id):
-    meals = mongo.db.meals_courses
-    meals.update({'_id': ObjectId(meal_id)},
-                 {'meal_course_type': request.form.get('meal_course_type')})
+    # Make category lowercase for saving in database
+    edit_mct = request.form.get('meal_course_type')
+    mct_lower = edit_mct.lower()
+
+    meals_courses = mongo.db.meals_courses
+    meals_courses.update(
+        {'_id': ObjectId(meal_id)},
+        {'meal_course_type': mct_lower})
     flash('Success! The Meals & Courses category has been updated')
     return redirect(url_for('get_categories'))
 
 
 @app.route('/update_cuisine/<cuis_id>', methods=['POST'])
 def update_cuisine(cuis_id):
-    mongo.db.cuisines.update(
+    edit_cuisine = request.form.get('cuisine')
+    cuisine_lower = edit_cuisine.lower()
+
+    cuisines = mongo.db.cuisines
+    cuisines.update(
         {'_id': ObjectId(cuis_id)},
-        {'cuisine': request.form.get('cuisine')})
+        {'cuisine': cuisine_lower})
     flash('Success! The Cuisine category has been updated')
     return redirect(url_for('get_categories'))
 
@@ -341,12 +350,18 @@ def add_category():
 
 @app.route('/insert_meal', methods=['POST'])
 def insert_meal():
-    new_meal = request.form.to_dict()
-    newCat = new_meal["meal_course_type"]
-    mealsCat = mongo.db.meals_courses
+    # Make category lowercase for saving in database
+    new_mct = request.form.get('meal_course_type')
+    mct_lower = new_mct.lower()
+    
+    meal_course_type = {
+        'meal_course_type': mct_lower
+    }
+
     # Only add if not already in collection
-    if mealsCat.count({"meal_course_type": newCat}) == 0:
-        mongo.db.meals_courses.insert_one(new_meal)
+    meals_courses = mongo.db.meals_courses
+    if meals_courses.count({"meal_course_type": mct_lower}) == 0:
+        mongo.db.meals_courses.insert_one(meal_course_type)
         flash('Success! New category added to Meals and Courses')
     else:
         flash('Oops! Category already exists')
@@ -355,12 +370,18 @@ def insert_meal():
 
 @app.route('/insert_cuisine', methods=['POST'])
 def insert_cuisine():
-    new_cuisine = request.form.to_dict()
-    newCat = new_cuisine["cuisine"]
-    cuisineCat = mongo.db.cuisines
+    # Make category lowercase for saving in database
+    new_cuisine = request.form.get('cuisine')
+    cuisine_lower = new_cuisine.lower()
+
+    cuisine = {
+        'cuisine': cuisine_lower
+    }
+
     # Only add if not already in collection
-    if cuisineCat.count({"cuisine": newCat}) == 0:
-        mongo.db.cuisines.insert_one(new_cuisine)
+    cuisines = mongo.db.cuisines
+    if cuisines.count({"cuisine": cuisine_lower}) == 0:
+        mongo.db.cuisines.insert_one(cuisine)
         flash('Success! New category added to Cuisines')
     else:
         flash('Oops! Category already exists')

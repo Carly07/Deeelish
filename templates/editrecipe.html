@@ -17,7 +17,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">create</i>
-                <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}">
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name.title()}}">
                 <label for="icon_prefix">Recipe Name</label>
             </div>
         </div>
@@ -37,9 +37,9 @@
                     <option value="" disabled selected>Mealtimes and Courses</option>
                     {% for meals in meals_courses %}
                         {% if meals.meal_course_type == meal_course_type %}
-                        <option value="{{meal_course_type}}" selected >{{meal_course_type}}</option>
+                        <option value="{{meal_course_type}}" selected >{{meal_course_type.title()}}</option>
                         {% else %}
-                        <option value="{{meals.meal_course_type}}">{{meals.meal_course_type}}</option>
+                        <option value="{{meals.meal_course_type}}">{{meals.meal_course_type.title()}}</option>
                     {% endif %}
                     {% endfor %}
                 </select>
@@ -50,9 +50,9 @@
                     <option value="" disabled selected>Cuisines</option>
                     {% for cuis in cuisines %}
                         {% if cuis.cuisine == cuisine %}
-                        <option value="{{cuisine}}" selected >{{cuisine}}</option>
+                        <option value="{{cuisine}}" selected >{{cuisine.title()}}</option>
                         {% else %}
-                        <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>
+                        <option value="{{cuis.cuisine}}">{{cuis.cuisine.title()}}</option>
                         {% endif %}
                     {% endfor %}
                 </select>

@@ -118,7 +118,7 @@ def add_recipe():
 
 @app.route('/insert_recipe', methods=['GET', 'POST'])
 def insert_recipe():
-    # ---------Get ObjectId for Categories-------------
+    # Get ObjectId for Categories
     meal_course_type = request.form.get('meal_course_type')
     meal_id = mongo.db.meals_courses.find_one(
         {"meal_course_type": meal_course_type})["_id"]
@@ -126,7 +126,7 @@ def insert_recipe():
     cuisine = request.form.get('cuisine')
     cuisine_id = mongo.db.cuisines.find_one({"cuisine": cuisine})["_id"]
 
-    # ---------Change string values to boolean----------
+    # Change string values to boolean
     my_user_data = request.form.to_dict()
 
     if 'is_vegetarian' in my_user_data:
@@ -153,7 +153,7 @@ def insert_recipe():
         my_user_data['is_dairyFree'] = False
     my_user_data['is_dairyFree']
 
-    # ---------Save to database--------------
+    # Save to database
     recipe = {
         'add_photo': request.form.get('add_photo'),
         'recipe_name': request.form.get('recipe_name'),
@@ -195,7 +195,7 @@ def edit_recipe(recipe_id):
 
 @app.route('/update_recipe/<recipe_id>', methods=['GET', 'POST'])
 def update_recipe(recipe_id):
-    # ---------Get ObjectId for Categories-------------
+    # Get ObjectId for Categories
     meal_course_type = request.form.get('meal_course_type')
     meal_id = mongo.db.meals_courses.find_one(
         {"meal_course_type": meal_course_type})["_id"]
@@ -203,7 +203,7 @@ def update_recipe(recipe_id):
     cuisine = request.form.get('cuisine')
     cuisine_id = mongo.db.cuisines.find_one({"cuisine": cuisine})["_id"]
 
-    # ---------Change string values to boolean----------
+    # Change string values to boolean
     my_user_data = request.form.to_dict()
 
     if 'is_vegetarian' in my_user_data:
@@ -230,7 +230,7 @@ def update_recipe(recipe_id):
         my_user_data['is_dairyFree'] = False
     my_user_data['is_dairyFree']
 
-    # ---------Save to database--------------
+    # Save to database
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
                    {
@@ -304,6 +304,7 @@ def update_meal(meal_id):
 
 @app.route('/update_cuisine/<cuis_id>', methods=['POST'])
 def update_cuisine(cuis_id):
+    # Make category lowercase for saving in database
     edit_cuisine = request.form.get('cuisine')
     cuisine_lower = edit_cuisine.lower()
 

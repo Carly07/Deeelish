@@ -10,7 +10,7 @@ if path.exists("env.py"):
 app = Flask(__name__)
 
 app.SECRET_KEY = os.environ.get('SECRET_KEY')
-app.secret_key = 'deliciousSecret'
+app.secret_key = os.environ.get('SECRET_KEY')
 app.config["MONGO_DBNAME"] = 'deeelish'
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
@@ -47,7 +47,9 @@ def get_recipes():
             {}, {"meal_course_type": 1})]
         cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
             {}, {"cuisine": 1})]
-        return render_template("recipes.html", recipes=recipes, meal_course_types=meal_course_types, cuisines=cuisines)
+        return render_template("recipes.html", recipes=recipes,
+                               meal_course_types=meal_course_types,
+                               cuisines=cuisines)
 
     else:
         if suitability == 'vegetarian':
@@ -90,7 +92,9 @@ def get_recipes():
                 {}, {"meal_course_type": 1})]
             cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
                 {}, {"cuisine": 1})]
-    return render_template("recipes.html", recipes=recipes, meal_course_types=meal_course_types, cuisines=cuisines)
+    return render_template("recipes.html", recipes=recipes,
+                           meal_course_types=meal_course_types,
+                           cuisines=cuisines)
 
 
 # ----------------VIEW RECIPE PAGE FUNCTIONALITY----------------
@@ -101,7 +105,8 @@ def view_recipe(recipe_id):
     the_recipe = recipes.find_one({"_id": ObjectId(recipe_id)})
     # Display category names rather than ObjectId
     meal_name = mongo.db.meals_courses.find_one(
-        {"_id": ObjectId(the_recipe.get("meal_course_type"))})["meal_course_type"]
+        {"_id": ObjectId(the_recipe.get
+                         ("meal_course_type"))})["meal_course_type"]
     cuisine_name = mongo.db.cuisines.find_one(
         {"_id": ObjectId(the_recipe.get("cuisine"))})["cuisine"]
     return render_template('viewrecipe.html', recipe=the_recipe,
@@ -174,7 +179,7 @@ def insert_recipe():
     }
     recipes = mongo.db.recipes.insert_one(recipe)
     flash('Success! New recipe added to the database')
-    return redirect(url_for('get_recipes'))
+    return redirect(url_for('get_recipes', recipes=recipes))
 
 
 # ----------------EDIT RECIPE PAGE FUNCTIONALITY----------------
@@ -184,7 +189,8 @@ def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     # Display category names rather than ObjectId
     meal_name = mongo.db.meals_courses.find_one(
-        {"_id": ObjectId(the_recipe.get("meal_course_type"))})["meal_course_type"]
+        {"_id": ObjectId(the_recipe.get
+                         ("meal_course_type"))})["meal_course_type"]
     cuisine_name = mongo.db.cuisines.find_one(
         {"_id": ObjectId(the_recipe.get("cuisine"))})["cuisine"]
 
@@ -360,7 +366,7 @@ def insert_meal():
     # Make category lowercase for saving in database
     new_mct = request.form.get('meal_course_type')
     mct_lower = new_mct.lower()
-    
+
     meal_course_type = {
         'meal_course_type': mct_lower
     }

@@ -30,34 +30,29 @@
                 </div>
 		</div>
         <div class="row">
-                <div class="col s6 m6 l3">
-                    {% if recipe.is_vegetarian %}
-                        <span class="suit-col">Vegetarian</span>
-                    {% else %}
+            {% if recipe.is_vegetarian %}
+                <span class="suit-col">Vegetarian</span>
+            {% else %}
 
-                    {% endif%}
-                </div>
-                <div class="col s6 m6 l3">
-                    {% if recipe.is_vegan %}
-                        <span class="suit-col">Vegan</span>
-                    {% else %}
+            {% endif%}
 
-                    {% endif%}
-                </div>
-                <div class="col s6 m6 l3">
-                    {% if recipe.is_glutenFree %}
-                        <span class="suit-col">Gluten Free</span>
-                    {% else %}
+            {% if recipe.is_vegan %}
+                <span class="suit-col">Vegan</span>
+            {% else %}
 
-                    {% endif%}
-                </div>
-                <div class="col s6 m6 l3">
-                    {% if recipe.is_dairyFree %}
-                        <span class="suit-col">Dairy Free</span>
-                    {% else %}
+            {% endif%}
+        
+            {% if recipe.is_glutenFree %}
+                <span class="suit-col">Gluten Free</span>
+            {% else %}
 
-                    {% endif%}
-                </div>
+            {% endif%}
+        
+            {% if recipe.is_dairyFree %}
+                <span class="suit-col">Dairy Free</span>
+            {% else %}
+
+            {% endif%}
 		</div>
 	</div>
 </div>

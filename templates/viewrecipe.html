@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!--******** PAGE HEADER ********-->
 <div class="container">
 <h3 class="page-head">{{recipe.recipe_name.title()}}</h3>
 
+<!--******** RECIPE IMAGE ********-->
 <div class="row">
 	<div class="col s12 m4 l3">
-        
         <img class="responsive-img" src="{{recipe.add_photo}}" height="100%">
-    
     </div>
 
+<!--******** RECIPES DETAILS ********-->
 	<div class="col s12 m8 l9">
 		<p class="recipe_description">{{recipe.recipe_description}}</p>
 
@@ -79,6 +80,8 @@
 
 	</div>
 </div>
+
+<!--******** BUTTONS ********-->
 <div class="row">
     <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right btn btn-del">Delete<i class="material-icons right">delete</i></a>
     <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right btn">Edit<i class="material-icons right">create</i></a>

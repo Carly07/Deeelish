@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!--******** PAGE HEADER ********-->
+
 <div class="container">
 <h3 class="page-head">Discover Recipes</h3>
+
+<!--******** FILTER FORM ********-->
 
 <div class="row filter-form">
     <form action="{{url_for('get_recipes')}}" class="" method="GET">
@@ -42,6 +46,8 @@
     </form>
 </div>
 
+<!--******** RECIPE RESULTS ACCORDION ********-->
+
 <div class="row results-row">
     <ul class="collapsible" data-collapsible="accordion">
         {% for recipe in recipes %}
@@ -77,6 +83,8 @@
         {% endfor %}
     </ul>
 </div>
+
+<!--******** ADD NEW RECIPE BUTTON ********-->
 
 <div class="row add-recipe-row">
     <a href="{{url_for('add_recipe')}}" class="waves-effect waves-light btn z-depth-3"><i class="material-icons right">playlist_add</i>Add New Recipe</a>

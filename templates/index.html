@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
+<!--******** IMAGE ********-->
 <div class="parallax-container">
 	<div class="parallax"><img src="{{ url_for('static', filename='images/uploads/deeelish-cover.jpg') }}"></div>
 </div>
+
+<!--******** ABOUT SECTION ********-->
 <div class="section white">
     <div class="row container">
         <h2 class="header">Welcome to Deeelish!</h2>
@@ -13,6 +15,8 @@
             created this online community kitchen to encourage the sharing of delicious recipes and how to guides.
             So stay home and get cooking...</p>
     </div>
+
+    <!--******** SEARCH AND CREATE RECIPE BUTTONS ********-->
     <div class="row container">
         <div class="col s12 m6 search-col">
             <div class="card welcome-card hoverable grey lighten-5">
@@ -34,9 +38,13 @@
         </div>
     </div>
 </div>
+
+<!--******** IMAGE ********-->
 <div class="parallax-container">
     <div class="parallax"><img src="{{ url_for('static', filename='images/uploads/banana-bread.jpg') }}"></div>
 </div>
+
+<!--******** FEATURED RECIPES ********-->
 <div class="section white">
     <div class="row container">
         <h2 class="header">Seasonal Recipes</h2>
@@ -61,6 +69,8 @@
         </div>
     </div>
 </div>
+
+<!--******** IMAGE ********-->
 <div class="parallax-container">
     <div class="parallax"><img src="{{ url_for('static', filename='images/uploads/meringue-next-cheesecake.jpg') }}"></div>
 </div>

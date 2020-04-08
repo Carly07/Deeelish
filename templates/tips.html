@@ -1,261 +1,271 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
+<!--******** IMAGE ********-->
 <div class="parallax-container">
 	<div class="parallax"><img src="{{ url_for('static', filename='images/uploads/deeelish-cover.jpg') }}"></div>
-	</div>
-	<div class="section white">
-		<div class="row container">
-			<h2 class="header">Tips</h2>
-			<p class="welcome-para grey-text text-darken-2 lighten-3">Use these guides to help you get the best from your cooking. Remember to stick to either imperial or metric when you're making a recipe - don't mix the two.</p>
-		</div>
-		<div class="row container tip-card-row">
-			<div class="col s12 m4 l4 tip-col">
-				<div class="card tip-card hoverable grey lighten-5">
-                    <div class="card-image">
-                        <img src="{{ url_for('static', filename='images/uploads/cake-tins.jpg') }}">
-                    </div>
-					<div class="card-content tip-content grey-text text-darken-2">
-						<span class="card-title">
+</div>
+
+<!--******** TIPS SECTION ********-->
+<div class="section white">
+    <div class="row container">
+        <h2 class="header">Tips</h2>
+        <p class="welcome-para grey-text text-darken-2 lighten-3">Use these guides to help you get the best from your cooking. Remember to stick to either imperial or metric when you're making a recipe - don't mix the two.</p>
+    </div>
+    <div class="row container tip-card-row">
+        <div class="col s12 m4 l4 tip-col">
+            <div class="card tip-card hoverable grey lighten-5">
+                <div class="card-image">
+                    <img src="{{ url_for('static', filename='images/uploads/cake-tins.jpg') }}">
+                </div>
+                <div class="card-content tip-content grey-text text-darken-2">
+                    <span class="card-title">
                         <a class="modal-trigger" href="#modal1">Cake tin sizes</a>
                     </span>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m4 l4 tip-col">
-				<div class="card tip-card hoverable grey lighten-5">
-                    <div class="card-image">
-                        <img src="{{ url_for('static', filename='images/uploads/oven.jpg') }}">
-                    </div>
-					<div class="card-content tip-content grey-text text-darken-2">
-						<span class="card-title">
-                        <a class="modal-trigger" href="#modal2">Oven temperature</a>
-                    </span>
-					</div>
-				</div>
-			</div>
-			<div class="col s12 m4 l4 tip-col">
-				<div class="card tip-card hoverable grey lighten-5">
-                    <div class="card-image">
-                        <img src="{{ url_for('static', filename='images/uploads/roast.jpg') }}">
-                    </div>
-					<div class="card-content tip-content grey-text text-darken-2">
-						<span class="card-title">
-                        <a class="modal-trigger" href="#modal3">Roast timings</a>
-                    </span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="parallax-container">
-		<div class="parallax"><img src="{{ url_for('static', filename='images/uploads/chicken-tikka-pizzas.jpg') }}"></div>
-	</div>
-    <div class="section white">
-        <div class="row container">
-            <h2 class="header">Techniques</h2>
-            <p class="welcome-para grey-text text-darken-2 lighten-3">Want to improve your cookery skills or expand
-                your kitchen know-how? From filleting fish to creating the perfect puffed up soufflé, storing and
-                freezing foods to using a slow cooker, this section is the place to find all the step-by-step guides
-                and videos you'll need.</p>
-            <div class="row tech-row">
-                <div class="col s12 m6 tech-col">
-                    <div class="video-container">
-                        <iframe width="853" height="480" src="//www.youtube.com/embed/i-yfCEVQ3DI" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="col s12 m6 tech-col">
-                    <div class="video-container">
-                        <iframe width="853" height="480" src="//www.youtube.com/embed/iHGO8ygUk0w" frameborder="0" allowfullscreen></iframe>
-                    </div>
                 </div>
             </div>
-            <div class="row tech-row">
-                <div class="col s12 m6 tech-col">
-                    <div class="video-container">
-                        <iframe width="853" height="480" src="//www.youtube.com/embed/uXSgGtMkgro" frameborder="0" allowfullscreen></iframe>
-                    </div>
+        </div>
+        <div class="col s12 m4 l4 tip-col">
+            <div class="card tip-card hoverable grey lighten-5">
+                <div class="card-image">
+                    <img src="{{ url_for('static', filename='images/uploads/oven.jpg') }}">
                 </div>
-                <div class="col s12 m6 tech-col">
-                    <div class="video-container">
-                        <iframe width="853" height="480" src="//www.youtube.com/embed/8O_-HD2P9pc" frameborder="0" allowfullscreen></iframe>
-                    </div>
+                <div class="card-content tip-content grey-text text-darken-2">
+                    <span class="card-title">
+                        <a class="modal-trigger" href="#modal2">Oven temperature</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4 l4 tip-col">
+            <div class="card tip-card hoverable grey lighten-5">
+                <div class="card-image">
+                    <img src="{{ url_for('static', filename='images/uploads/roast.jpg') }}">
+                </div>
+                <div class="card-content tip-content grey-text text-darken-2">
+                    <span class="card-title">
+                        <a class="modal-trigger" href="#modal3">Roast timings</a>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-		<div class="parallax-container">
-			<div class="parallax">
-				<img src="{{ url_for('static', filename='images/uploads/crispy-falafel.jpg') }}"></div>
-			</div>
+</div>
 
-			<!-- Modal Structure -->
-			<div id="modal1" class="modal modal-fixed-footer">
-				<div class="modal-content">
-					<h4>Cake Tin Sizes</h4>
-					<p>As a rule of thumb, a square tin holds about 25% more than a round tin of the same size. If
-						you're using a square tin for a round tin recipe, keep the temperature the same, and turn the
-						cake during baking, as the corners tend to cook faster than the middle.</p>
-					<table class="striped responsive-table">
-						<thead>
-							<tr>
-								<th>Round tin</th>
-								<th>Square tin</th>
-							</tr>
-						</thead>
+<!--******** IMAGE ********-->
+<div class="parallax-container">
+    <div class="parallax"><img src="{{ url_for('static', filename='images/uploads/chicken-tikka-pizzas.jpg') }}"></div>
+</div>
 
-						<tbody>
-							<tr>
-								<td>6 inch (15cm)</td>
-								<td>5 inch (13cm)</td>
-							</tr>
-							<tr>
-								<td>8 inch (20cm)</td>
-								<td>7 inch (18cm)</td>
-							</tr>
-							<tr>
-								<td>9 inch (23cm)</td>
-								<td>8 inch (20cm)</td>
-							</tr>
-							<tr>
-								<td>11 inch (28cm)</td>
-								<td>10 inch (25.5cm)</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="modal-footer">
-					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-				</div>
-			</div>
+<!--******** TECHNIQUES SECTION ********-->
+<div class="section white">
+    <div class="row container">
+        <h2 class="header">Techniques</h2>
+        <p class="welcome-para grey-text text-darken-2 lighten-3">Want to improve your cookery skills or expand
+            your kitchen know-how? From filleting fish to creating the perfect puffed up soufflé, storing and
+            freezing foods to using a slow cooker, this section is the place to find all the step-by-step guides
+            and videos you'll need.</p>
+        <div class="row tech-row">
+            <div class="col s12 m6 tech-col">
+                <div class="video-container">
+                    <iframe width="853" height="480" src="//www.youtube.com/embed/i-yfCEVQ3DI" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col s12 m6 tech-col">
+                <div class="video-container">
+                    <iframe width="853" height="480" src="//www.youtube.com/embed/iHGO8ygUk0w" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row tech-row">
+            <div class="col s12 m6 tech-col">
+                <div class="video-container">
+                    <iframe width="853" height="480" src="//www.youtube.com/embed/uXSgGtMkgro" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col s12 m6 tech-col">
+                <div class="video-container">
+                    <iframe width="853" height="480" src="//www.youtube.com/embed/8O_-HD2P9pc" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-			<!-- Modal Structure -->
-			<div id="modal2" class="modal modal-fixed-footer">
-				<div class="modal-content">
-					<h4>Oven Temperature Guide</h4>
-					<table class="striped responsive-table">
-						<thead>
-							<tr>
-								<th>Electricity °C</th>
-								<th>Electricity (fan) °C</th>
-								<th>Gas Mark</th>
-							</tr>
-						</thead>
+<!--******** IMAGE ********-->
+<div class="parallax-container">
+    <div class="parallax">
+        <img src="{{ url_for('static', filename='images/uploads/crispy-falafel.jpg') }}">
+    </div>
+</div>
 
-						<tbody>
-							<tr>
-								<td>110</td>
-								<td>90</td>
-								<td>1/4</td>
-							</tr>
-							<tr>
-								<td>120</td>
-								<td>100</td>
-								<td>1/2</td>
-							</tr>
-							<tr>
-								<td>140</td>
-								<td>120</td>
-								<td>1</td>
-							</tr>
-							<tr>
-								<td>150</td>
-								<td>130</td>
-								<td>2</td>
-							</tr>
-							<tr>
-								<td>160</td>
-								<td>140</td>
-								<td>3</td>
-							</tr>
-							<tr>
-								<td>180</td>
-								<td>160</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>190</td>
-								<td>170</td>
-								<td>5</td>
-							</tr>
-							<tr>
-								<td>200</td>
-								<td>180</td>
-								<td>6</td>
-							</tr>
-							<tr>
-								<td>220</td>
-								<td>200</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>230</td>
-								<td>210</td>
-								<td>8</td>
-							</tr>
-							<tr>
-								<td>240</td>
-								<td>220</td>
-								<td>9</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="modal-footer">
-					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-				</div>
-			</div>
+<!--******** TIPS MODALS ********-->
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Cake Tin Sizes</h4>
+        <p>As a rule of thumb, a square tin holds about 25% more than a round tin of the same size. If
+            you're using a square tin for a round tin recipe, keep the temperature the same, and turn the
+            cake during baking, as the corners tend to cook faster than the middle.</p>
+        <table class="striped responsive-table">
+            <thead>
+                <tr>
+                    <th>Round tin</th>
+                    <th>Square tin</th>
+                </tr>
+            </thead>
 
-			<!-- Modal Structure -->
-			<div id="modal3" class="modal modal-fixed-footer">
-				<div class="modal-content">
-					<h4>Roast Timing</h4>
-					<p>It's best to calculate your cooking time at 40 minutes per kg or 20 minutes per lb to get the
-						most accurate time.</p>
-					<h5>Checking it's ready</h5>
-					<p>The best way to check if your meat is cooked is by using a digital cooking thermometer.</p>
-						<table class="striped">
-							<thead>
-								<tr>
-									<th>Beef, lamb & venison</th>
-									<th>Pork</th>
-									<th>Poultry</th>
-								</tr>
-							</thead>
+            <tbody>
+                <tr>
+                    <td>6 inch (15cm)</td>
+                    <td>5 inch (13cm)</td>
+                </tr>
+                <tr>
+                    <td>8 inch (20cm)</td>
+                    <td>7 inch (18cm)</td>
+                </tr>
+                <tr>
+                    <td>9 inch (23cm)</td>
+                    <td>8 inch (20cm)</td>
+                </tr>
+                <tr>
+                    <td>11 inch (28cm)</td>
+                    <td>10 inch (25.5cm)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
 
-							<tbody>
-								<tr>
-									<td>Rare: 52C</td>
-									<td>75C-80C</td>
-									<td>75C-80C</td>
-								</tr>
-								<tr>
-									<td>Medium: 60C</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>Well done: 75C-80C</td>
-									<td></td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
+<!-- Modal Structure -->
+<div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Oven Temperature Guide</h4>
+        <table class="striped responsive-table">
+            <thead>
+                <tr>
+                    <th>Electricity °C</th>
+                    <th>Electricity (fan) °C</th>
+                    <th>Gas Mark</th>
+                </tr>
+            </thead>
 
-                    <h5>Test for doneness</h5>
-					<p>It’s particularly important that poultry is cooked through. If using a digital thermometer always double check the reading by sticking the probe in several different spots within the thigh or breast, to find the lowest reading. If returning to the oven allow 10-15 mins then test again until the correct temperature is reached.</p>
-                    <p>Without a thermometer, the classic way to test is to push a spoon under the leg of the bird so that it pierces the skin (or use a skewer), and inspect the juices that collect in the spoon. The juices should be pale gold and clear; if there are traces of blood return to the oven allow 10-15 mins then test again. </p>
+            <tbody>
+                <tr>
+                    <td>110</td>
+                    <td>90</td>
+                    <td>1/4</td>
+                </tr>
+                <tr>
+                    <td>120</td>
+                    <td>100</td>
+                    <td>1/2</td>
+                </tr>
+                <tr>
+                    <td>140</td>
+                    <td>120</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>150</td>
+                    <td>130</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>160</td>
+                    <td>140</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>180</td>
+                    <td>160</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>190</td>
+                    <td>170</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>200</td>
+                    <td>180</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>220</td>
+                    <td>200</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>230</td>
+                    <td>210</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>240</td>
+                    <td>220</td>
+                    <td>9</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
 
-                    <h5>Finishing touches</h5>
-					<p>To make sure you get the perfect juicy roast, leave the joint to rest on a platter so the juices get a chance to settle and run back into the meat. Cover with foil to stop all the heat escaping. Leave for 10 mins for a small joint, 20-30 mins for larger ones.</p>
-                    <p>Tip tip: If you’re cooking a turkey it’s important to note that not all turkeys are the same. Our timings for a regular turkey are based on a standard supermarket bird. Cooking times are different for special breed turkeys. </p>
+<!-- Modal Structure -->
+<div id="modal3" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Roast Timing</h4>
+        <p>It's best to calculate your cooking time at 40 minutes per kg or 20 minutes per lb to get the
+            most accurate time.</p>
+        <h5>Checking it's ready</h5>
+        <p>The best way to check if your meat is cooked is by using a digital cooking thermometer.</p>
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Beef, lamb & venison</th>
+                        <th>Pork</th>
+                        <th>Poultry</th>
+                    </tr>
+                </thead>
 
-                    <h5>Resting</h5>
-					<p>It is essential to rest your meat before carving. Allow 20-30 mins for a small joint or 30-45 mins for a large joint or turkey. Put the meat in a warm place, tented with foil. During this time the roast will finish cooking, become juicier and easier to carve – and don’t worry, it won’t get cold.</p>
-				</div>
-				<div class="modal-footer">
-					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-				</div>
-			</div>
-			{% endblock %}
+                <tbody>
+                    <tr>
+                        <td>Rare: 52C</td>
+                        <td>75C-80C</td>
+                        <td>75C-80C</td>
+                    </tr>
+                    <tr>
+                        <td>Medium: 60C</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Well done: 75C-80C</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        <h5>Test for doneness</h5>
+        <p>It’s particularly important that poultry is cooked through. If using a digital thermometer always double check the reading by sticking the probe in several different spots within the thigh or breast, to find the lowest reading. If returning to the oven allow 10-15 mins then test again until the correct temperature is reached.</p>
+        <p>Without a thermometer, the classic way to test is to push a spoon under the leg of the bird so that it pierces the skin (or use a skewer), and inspect the juices that collect in the spoon. The juices should be pale gold and clear; if there are traces of blood return to the oven allow 10-15 mins then test again. </p>
+
+        <h5>Finishing touches</h5>
+        <p>To make sure you get the perfect juicy roast, leave the joint to rest on a platter so the juices get a chance to settle and run back into the meat. Cover with foil to stop all the heat escaping. Leave for 10 mins for a small joint, 20-30 mins for larger ones.</p>
+        <p>Tip tip: If you’re cooking a turkey it’s important to note that not all turkeys are the same. Our timings for a regular turkey are based on a standard supermarket bird. Cooking times are different for special breed turkeys. </p>
+
+        <h5>Resting</h5>
+        <p>It is essential to rest your meat before carving. Allow 20-30 mins for a small joint or 30-45 mins for a large joint or turkey. Put the meat in a warm place, tented with foil. During this time the roast will finish cooking, become juicier and easier to carve – and don’t worry, it won’t get cold.</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+{% endblock %}

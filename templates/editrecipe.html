@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<!--******** PAGE HEADER ********-->
 <div class="container">
 <h3 class="page-head">Edit Recipe</h3>
 
+<!--******** EDIT RECIPE FORM ********-->
 <div class="row">
 	<form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12 edit-recipe-form" enctype="multipart/form-data">
 

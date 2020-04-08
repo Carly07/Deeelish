@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!--******** PAGE HEADER ********-->
 <div class="container">
 <h3 class="page-head">Edit Category</h3>
 
 <h5>Cuisines</h5>
 
+<!--******** EDIT CUISINE CATEGORY FORM ********-->
 <div class="row">
 	<form action="{{ url_for('update_cuisine', cuis_id=cuis._id) }}" method="POST" class="col s12">
 

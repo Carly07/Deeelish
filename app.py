@@ -77,6 +77,7 @@ def get_recipes():
         if filter:
             print("if filter is true")
             recipes = mongo.db.recipes.find(filter)
+            # Display category names in recipe result rather than ObjectId
             meal_course_types = [mct for mct in mongo.db.meals_courses.find(
                 {}, {"meal_course_type": 1})]
             cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
@@ -84,6 +85,7 @@ def get_recipes():
         else:
             print("if filter not true - else has run")
             recipes = mongo.db.recipes.find()
+            # Display category names in recipe result rather than ObjectId
             meal_course_types = [mct for mct in mongo.db.meals_courses.find(
                 {}, {"meal_course_type": 1})]
             cuisines = [cuisine for cuisine in mongo.db.cuisines.find(
@@ -97,6 +99,7 @@ def get_recipes():
 def view_recipe(recipe_id):
     recipes = mongo.db.recipes
     the_recipe = recipes.find_one({"_id": ObjectId(recipe_id)})
+    # Display category names rather than ObjectId
     meal_name = mongo.db.meals_courses.find_one(
         {"_id": ObjectId(the_recipe.get("meal_course_type"))})["meal_course_type"]
     cuisine_name = mongo.db.cuisines.find_one(
@@ -179,6 +182,7 @@ def insert_recipe():
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    # Display category names rather than ObjectId
     meal_name = mongo.db.meals_courses.find_one(
         {"_id": ObjectId(the_recipe.get("meal_course_type"))})["meal_course_type"]
     cuisine_name = mongo.db.cuisines.find_one(
@@ -320,6 +324,7 @@ def update_cuisine(cuis_id):
 
 @app.route('/delete_meal/<meal_id>')
 def delete_meal(meal_id):
+    # Check category not in use before delete
     recipes = mongo.db.recipes.find({"meal_course_type": ObjectId(meal_id)})
     if recipes.count() == 0:
         mongo.db.meals_courses.remove({'_id': ObjectId(meal_id)})
@@ -331,6 +336,7 @@ def delete_meal(meal_id):
 
 @app.route('/delete_cuisine/<cuis_id>')
 def delete_cuisine(cuis_id):
+    # Check category not in use before delete
     recipes = mongo.db.recipes.find({"cuisine": ObjectId(cuis_id)})
     if recipes.count() == 0:
         mongo.db.cuisines.remove({'_id': ObjectId(cuis_id)})

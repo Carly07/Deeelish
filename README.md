@@ -40,6 +40,7 @@ The greyscale and yellow color scheme was chosen to create a bright, modern feel
 
 
 ## Features
+
 ### Existing Features
 
 #### Navbar
@@ -111,3 +112,35 @@ All the languages, frameworks, libraries, and tools used to construct this proje
 •	<a target="_blank" href="https://validator.w3.org/">W3C Markup Validation Service</a> - The HTML and CSS code for this project was checked and validated by the W3C Markup Validation Service
 
 
+## Testing
+
+
+## Deployment
+The application is hosted by Heroku. In order to achieve this, all code was first committed to a local Git repository using the 'git add .' and "git commit -m 'message'" commands. It was then pushed to a remote [GitHub repository](https://github.com/Carly07/deeelish) using 'git push' before being deployed to Heroku using 'git push heroku master'.
+
+The database is hosted at [MongoDB](https://account.mongodb.com/account/login)
+
+For production, the app's debug attribute is set to False, and the secret data, i.e the app.secret_key and the database connection string encoding the password in plain text, are stored as environment variables at Heroku and accessed through the os.getenv() method.
+
+To run the project locally, simply clone the repository directly into your chosen editor by pasting `git clone https://github.com/Carly07/deeelish` into your terminal. 
+
+## Credits
+
+### Content
+•	All the recipes used within this site were sourced from [BBC Good Food](https://www.bbcgoodfood.com/). 
+•	The text within the Tips section was taken from [BBC Good Food](https://www.bbcgoodfood.com/).
+
+### Media
+•	The photographs used throughout this site were found on [Google Images](https://www.google.com/imghp?hl=en).
+•	The videos contained within the Techniques Section were obtained from [YouTube](https://www.youtube.com/).
+
+### Acknowledgements
+The scrollSpy delay JavaScript function was found through this tutorial [here](https://www.abeautifulsite.net/smoothly-scroll-to-an-element-without-a-jquery-plugin-2).
+
+The progress circles from the skills section are modeled after the following Stack Overflow [example](https://stackoverflow.com/questions/14222138/css-progress-circle). They were significantly modified to fit the styling, sizing, and progress for each skill.
+
+The media query for the collapsed navbar regardless of viewport width was taken from this [site](https://www.codeply.com/go/iaM1zcNsQB/bootstrap-navbar-always-collapsed).
+
+Special thanks to my mentor, Antonio Rodriguez for his help and advice with this project.
+
+**This is for educational use.** 

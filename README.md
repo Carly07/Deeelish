@@ -141,13 +141,13 @@ Boolean
 
 The deeelish project relies on three collections:
 
-•	recipes
+#### Recipes
 ![recipes](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/recipescollection.png)
 
-•	meals_courses
+#### Meals and Courses
 ![meals_courses](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/meals_coursescollection.png)
 
-•	cuisines
+#### Cuisines
 ![cuisines](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/cuisinescollection.png)
 
 The ObjectId from the selected meals_courses and cuisines category collection are retrieved and stored as the meal_course_type and cuisine values within the recipe document in the recipes collection. This creates a relationship between the collections which means that if a particular category within either the meals_courses or cuisine collections is updated it will reflect the change in all the recipe documents associated with that category.
@@ -155,21 +155,38 @@ The ObjectId from the selected meals_courses and cuisines category collection ar
 ## Testing
 ### Developer tools
 
-GitPod's preview, google chrome developer tools and responsinator were utilised throughout the development of the project to identify and successfully address any bugs, errors or style issues affecting UX on various screen resolutions. W3C Markup and CSS Validation Services were also used to check the validity of my HTML and CSS code. NB. the W3c validator throws errors in the HTML files linked to the Jinja templating syntax. 
+GitPod's preview, google chrome developer tools and responsinator were utilised throughout the development of the project to identify and successfully address any bugs, errors or style issues affecting UX on various screen resolutions. W3c Markup and CSS Validation Services were also used to check the validity of my HTML and CSS code. 
+**NB.** the W3c validator throws errors in the HTML files the Jinja templating syntax is found. 
 
 ### User scenarios
 
-As hoped, the cook of the household and cooking noice were inspired by the collection of recipes available at Deeelish. They arrived at the site and were immediately presented with recipe imagery that appealed to their senses. With one click on either the 'Discover Recipes' link in the Navbar or the 'Search Recipes' card under the welcome message, they were then presented with the full collection of recipes available, displayed on an accordion showing the Recipe Name, Meal Course and Cuisine. From there, they were able to click on the expand more icon to view the recipe description and or select the 'view' button to access the full recipe. The cooking novice was pleased to find a full list of ingredients and step-by-step intructions as to how to prepare the recipe. They were also able to access the Tips and Techniques page from anywhere on the site using the link on the navbar and this provided them with some handy guides and videos to help improve their cooking skills. The user was able to click on each Tip card to view the information and then click 'close' once finished. In the Technique section, the user was able to view the video by clicking the play icon. 
+#### Cooking novice and Household cook
+As desired, the cook of the household and cooking noice were inspired by the collection of recipes available at Deeelish. They arrived at the site and were immediately presented with recipe imagery that appealed to their senses. With one click on either the **Discover Recipes** link in the Navbar or the **Search Recipes** card under the welcome message, they were then presented with the full collection of recipes available, displayed on an accordion showing the Recipe Name, Meal Course and Cuisine. From there, they were able to click on the expand more icon to view a short recipe description and select the **View** button to access the full recipe. 
 
-The person with food intolerances achieved their desired outcome of filtering the recipe results by specifc dietry requirements as well as their preference for the type of meal course and cuisine. Having navigated to the Discover Recipes page, they were presented with three dropdown select menus; first named suitability providing dietry preferences, a second named Meals & Courses and a third named Cuisines each displaying da list of options. The user was able to select an option from either one, two or all three menus before click the 'filter' button to retrieve the list of results available. Equally, they were able to set the menus to 'All' to return to the full collection. 
+The cooking novice was pleased to find a full list of ingredients and step-by-step intructions as to how to prepare the recipe. They were also able to access the **Tips and Techniques** page from anywhere on the site using the link on the navbar and this provided them with some handy guides and videos to help improve their cooking skills. 
+The user was able to click on each Tip card to read the information and then click **Close** once finished. In the Technique section, the user was able to view the video by clicking the play icon. 
 
-The user with a passion for homecooking, was able to add their own recipes to the collection for sharing with the so Deeelish community. They were able to achieve this by clicking on either the Add Recipe link from the menu or the 'Share Recipe' card om the home page under the welcome message. This provided them with a simple form to input their recipe and a button to submit. If the user tried to submit the recipe without key fields being complete they received they reciped a prompt advising that the information was required. Having successfully submitted the recipe, the user received a confirmation meesage. This user was also pleased to find, having viewed the recipe and spotted an error, that they were able to edit the recipe by clicking on the edit buttons at the end of the recipe. This presented them with a pre-populated form. The user was able to update the required fields and click 'Save Changes' to update the Recipe. Similarly, having changed their mind about a particular recipe entry, they could click on the 'Delete' button located at the end of the recipe. Once again the users was provided with a confirmation message for each edit and delete action completed. 
+#### User with food intolerances
+The person with food intolerances achieved their desired outcome of filtering the recipe results by specifc dietry requirements as well as their preference for the type of meal course and cuisine. 
+Having navigated to the **Discover Recipes** page, they were presented with three dropdown select menus; the first named **suitability** providing dietry preferences, a second named **Meals & Courses** and a third named **Cuisines** each displaying a list of options. The user was able to select an option from either one, two or all three menus before clicking the **filter** button to retrieve the list of results available. Equally, they were able to set the filter menus to 'All' to return to the full collection. 
 
-Additionally, users were able to view, add, edit and delete categories in both the Meals & Course and Cuisines collections by navigating to the 'Browse Categories' link in the menu. There they were presented with a button at the top to 'Add new Category' following by the results for both collections each with the option to edit or delete by clicking on the associated expand icon. Having selected to add a new category, they were redirect to a simple form containing the collection names as subheadings, an input field below each to type in their new category name and a button to 'Add Category'. If successful, they received a confirmation message but if the category already existed in the database, they receive a message advising them so and the category is not added to the collection. Having opted to edit a category they were taken to a simple form with the collection heading, a pre-populated input field ready for editing and a 'Save Changes' button to update the database. The user then received a confirmation message that the category had been updated and they were able to see their result in the category list as well as in the dropdown menus on the Discover Recipe, Add Recipe and Edit Recipe pages. Similarly, users were able to delete a category and observe the result in this way. However, if they tried to delete a category that was already being used by a recipe, they recieved a message advising them so and the category was not deleted from the collection.   
+#### User with a passion for cooking
+The user with a passion for homecooking, was able to add their own recipes to the collection for sharing with the Deeelish community. They were able to achieve this by clicking on either the **Add Recipe*** link from the menu or the **Share Recipe** card on the home page under the welcome message. This provided them with a simple form to input their recipe and a button to **Submit Recipe**. If the user tried to submit the recipe without key fields being complete, they received a prompt advising that the information was required. Having successfully submitted the recipe, the user received a confirmation message. 
+
+This user was also pleased to find, having viewed the recipe and spotted an error, that they were able to edit the recipe by clicking on the **Edit** buttons at the end of the recipe. This presented them with a pre-populated form similar to the Add Recipe page. The user was able to update the required fields and click **Save Changes** to update the Recipe. 
+
+Similarly, having changed their mind about a particular recipe entry, they could click on the **Delete** button located at the end of the recipe. Once again the user was provided with a confirmation message for each edit and delete action completed. 
+
+
+Additionally, users were able to **View**, **Add**, **Edit** and **Delete** categories in both the Meals & Course and Cuisines collections by navigating to the **Browse Categories** link in the menu. There they were presented with a button at the top to **Add New Category** followed by the results for both collections, each with the option to **Edit** or **Delete** by clicking on the expand icon. 
+
+Having selected to add a new category, they were redirect to a simple form containing the collection names as subheadings, an input field below each to type in their new category name and a button to **Add Category**. If successful, they received a confirmation message but when the category already existed in the database, they receive a message advising them so and the category was not added to the collection. 
+
+Similarly when they opted to edit a category they were taken to a simple form with the collection heading, a pre-populated input field ready for editing and a **Save Changes** button to update the database. The user then received a confirmation message that the category had been updated and they were able to see their result in the category list as well as in the dropdown menus on the Discover Recipe, Add Recipe and Edit Recipe pages. Users were also able to delete a category and observe the result in this way but if they tried to delete a category that was already being used by a recipe, they recieved a message advising them so and the category was not deleted from the collection.   
 
 ### Multiple browsers and devices
 
-After the site was deployed, I tested it across four browsers (Chrome, Safari, Internet Explorer, FireFox) and on multiple devices (Samsung Galaxy J3, iPhone 7 Plus, 8, iPad 6, iPad Air, MacBook Air and iMac) as well as on Responsinator to ensure compatibility and responsiveness. Whilst testing, I noticed that the parallax images were not displaying correctly on my iphone. Having researched the problem, I found that using a media query to adjust the height fixed the issue. I also found that 
+After the site was deployed, I tested it across four browsers (Chrome, Safari, Internet Explorer, FireFox) and on multiple devices (Samsung Galaxy J3, iPhone 7 Plus, 8, iPad 6, iPad Air, MacBook Air and iMac) as well as on Responsinator to ensure compatibility and responsiveness. Whilst testing, I noticed that the parallax images were not displaying correctly on my iphone. Having researched the problem, I found that using a media query to adjust the height fixed the issue. I also found that...
 
 
 ## Deployment

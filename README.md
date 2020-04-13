@@ -244,7 +244,7 @@ You should then be able to run the application with the command `python app.py`
 
 ### Acknowledgements
 
-Small pieces of code have been copied from elsewhere, such as Materialize CSS. I have also made use of a number of websites in my pursuit to plumb and wire the all the functions necessary for this app, but particularly
+Small pieces of code have been copied from elsewhere, such as Materialize CSS. I have also made use of a number of websites in my pursuit to plumb and wire the all the functions necessary for this app, but pa:rticularly
 
 [Stack Overlflow](https://stackoverflow.com/)
 

@@ -2,7 +2,7 @@
 
 Deeelish is a web application, designed by me, Carly Clark, to satisfy the requirements of the "Data Centric Development" milestone project on the Code Institute Full-Stack Software Development course.
 
-It is intended to be an online community resource primarily for searching and sharing recipes, though users can also view cooking tips and techniques. 
+It is intended to be an online community resource primarily for searching and sharing recipes, though users can also create and remove categories fromt he collections and view cooking tips and techniques. 
 
 
 ## Demo
@@ -29,14 +29,13 @@ My goal in the design was to make it as easy as possible to access information, 
 I wanted users to feel welcome, to understand the purpose of the site and to be provided with some inspiration to get them cooking. I would like users to be able to view, edit and delete the categories and recipes in the collection as well as add their own categories and recipes. Additionally I would like users to be able to access our handy tips and techniques to improve their cooking skills. 
 
 ### Structure
-My hope was to present information to the users in a logical format that provides easy access to the information they require. With this in mind, users are welcomed to the site landing page with a brief overview of the purpose and some featured 'seasonal' recipe imagery to inspire them. From there, users can easily navigate 5 other areas of the site; Discover Recipes, Add Recipe, Browse Categories, Add Category and Tips & Techniques. On the Discover Recipe and Browse Categories pages, users can choose to expend a particular result to view more detail or access options including view, edit and delete. Hiding these options until required is is intended to promote a minimalist design. 
+My hope was to present information to the users in a logical format that provides easy access to the information they require. With this in mind, users are welcomed to the site landing page with a brief overview of the purpose and some featured 'seasonal' recipe imagery to inspire them. From there, users can easily navigate to 5 other areas of the site; Discover Recipes, Add Recipe, Browse Categories, Add Category and Tips & Techniques. On the Discover Recipe and Browse Categories pages, users can choose to expand a particular result to view more detail or access options including view, edit and delete. Hiding these options until required is is intended to promote a minimalist design. 
 
 ### Skeleton
 The basic wireframes for this site can be found [here](https://github.com/Carly07/deeelish/static/wireframes/)
 
-
 ### Surface
-The greyscale and yellow color scheme was chosen to create a bright, modern feel. Colourful images of fresh produce, cooked meals and home bakes are used to appeal to the users senses.
+The grey and yellow color scheme was chosen to create a bright, modern feel. Colourful images of fresh produce, cooked meals and home bakes are used to appeal to the users senses.
 
 
 ## Features
@@ -44,13 +43,13 @@ The greyscale and yellow color scheme was chosen to create a bright, modern feel
 ### Existing Features
 
 #### Navbar
-A fixed Navbar with dropdown menus has been implemented on larger devices whilst a side nav is enabled for mobile use. It was felt that this would enhance user experience by ensuring quick and easy navigation whilst still promoting a minimalist design. 
+A fixed Navbar with 2 dropdown menus has been implemented on larger devices whilst a side nav is enabled for mobile use. It was felt that this would enhance user experience by ensuring quick and easy navigation whilst still promoting a minimalist design. 
 
 #### Seasonal Recipes Section
 The featured 'Seasonal' recipe imagery is displayed using a touch enabled carousel offering the users recipe inspiration. Users can click on the image to be redirected to the relevant recipe. 
 
 #### Filter Function
-A form at the top of the Discover Recipes page offers users three dropdown menus displaying categories to select from in order to filter their recipe results. The Meals & Courses Category and the Cuisines Category have been populated dynamically so they remain consistant with any changes that have been made. 
+A form at the top of the Discover Recipes page offers users three dropdown menus displaying categories to select from in order to filter their recipe results. The Meals & Courses Category and the Cuisines Category have been populated dynamically so they remain consistant with any changes that have been made tot he database. 
 
 #### Discover Recipe and Browse Category Pages
 The Discover Recipe and Browse Category results are presented in an accordion displaying only basic details and hiding additional information that's not immediately relevant. Where users are interested in a particular recipe or category, they can expand the result to reveal more information and or other options available to them such as View, Edit and Delete. 
@@ -69,19 +68,19 @@ Materialize Footer has been used to provide the user with social medial links an
 
 
 ### Features Left to Implement
-In the future, I would like to add user registration and authentication to the site. 
+In the future, I would like to add user registration and authentication to the site. I would also like to add a Search box facility on the Discover Recipes page to enable users to search for a specific recipe.
 
 
 ## Technologies
-All the languages, frameworks, libraries, and tools used to construct this project are listed below. I have also provided a link to each official site and a brief overview of its usage.
+All the languages, frameworks, libraries, and tools used to construct this project are listed below. I have also provided a relevant link and a brief overview of its usage.
 
 ### Languages
 
-•	<a target="_blank" href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> – Markup language used to write customised frontend content for the application.
+•	<a target="_blank" href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> – Markup language used to write customised front-end content for the application.
 
 •	<a target="_blank" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS3</a> – Used to customise the style of the web application. 
 
-•	<a target="_blank" href="https://www.python.org/">Python</a> High-level programming language used to build back-end functionality.
+•	<a target="_blank" href="https://www.python.org/">Python</a> - High-level programming language used to build back-end functionality.
 
 
 ### Framework
@@ -95,7 +94,7 @@ All the languages, frameworks, libraries, and tools used to construct this proje
 
 •	<a target="_blank" href="https://jquery.com/">jQuery</a> - A JavaScript library used here to simplify DOM manipulation when initializing specific Materialize components within the application e.g. carousel, modal, accordion etc.
 
-•	<a target="_blank" href="https://fonts.google.com/">Google Fonts</a> – The font used throughout this website was obtained from Google Fonts.
+•	<a target="_blank" href="https://fonts.google.com/">Google Fonts</a> – The font used was obtained from Google Fonts.
 
 •	<a target="_blank" href="https://fontawesome.com/">Font Awesome</a> - The Social Media icons used within the footer were sourced from Font Awesome.
 
@@ -108,13 +107,13 @@ All the languages, frameworks, libraries, and tools used to construct this proje
 
 ### Tools 
 
-•	<a target="_blank" href="https://www.gitpod.io/">GitPod</a> – This is the online Integrated Development Environment (IDE) used for the development of this project.
+•	<a target="_blank" href="https://www.gitpod.io/">GitPod</a> – The online Integrated Development Environment (IDE) used for the development of this project.
 
 •	<a target="_blank" href="https://account.mongodb.com/">MongoDB</a> - A NoSQL database used for storing the user data in JSON-like documents.
 
 •   <a target="_blank" href="https://www.google.co.uk/chrome/">Google Chrome</a> - This browser and its' developer tools were used throughout the development of the app. 
 
-•   <a target="_blank" href="https://www.google.co.uk/chrome/">Responsinator</a> - Website used throughout the development to test responsiveness functionality on different devices. 
+•   <a target="_blank" href="https://www.google.co.uk/chrome/">Responsinator</a> - Website used to test responsiveness on different devices. 
 
 •	<a target="_blank" href="https://github.com/">Git</a> – A command-line tool, used for version control
 
@@ -133,13 +132,15 @@ This project utilizes the NoSQL database [MongoDB](https://account.mongodb.com/a
 
 The types of data stored in MongoDB for this project are:
 
-ObjectId
-String
-Boolean
+`ObjectId`
+
+`String`
+
+`Boolean`
 
 ### Collections Data Structure
 
-The deeelish project relies on three collections:
+The deeelish project relies on three collections, recipes, meals_courses and cuisines. Examples of documents from each can be found below.
 
 #### Recipes
 ![recipes](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/recipescollection.png)
@@ -156,20 +157,20 @@ The ObjectId from the selected meals_courses and cuisines category collection ar
 ### Developer tools
 
 GitPod's preview, google chrome developer tools and responsinator were utilised throughout the development of the project to identify and successfully address any bugs, errors or style issues affecting UX on various screen resolutions. W3c Markup and CSS Validation Services were also used to check the validity of my HTML and CSS code. 
+
 **NB.** the W3c validator throws errors in the HTML files the Jinja templating syntax is found. 
 
 ### User scenarios
 
 #### Cook of the Household
-As desired, the cook of the household and cooking noice were inspired by the collection of recipes available at Deeelish. They arrived at the site and were immediately presented with recipe imagery that appealed to their senses. With one click on either the **Discover Recipes** link in the Navbar or the **Search Recipes** card under the welcome message, they were presented with the full collection of recipes available, displayed on an accordion showing the Recipe Name, Meal Course and Cuisine. From there, they were able to click on the expand more icon to view a short recipe description and select the **View** button to access the full recipe. 
+As desired, the cook of the household was inspired by the collection of recipes available at Deeelish. They arrived at the site and were immediately presented with recipe imagery that appealed to their senses. With one click on either the **Discover Recipes** link in the Navbar or the **Search Recipes** card under the welcome message, they were presented with the full collection of recipes available, displayed on an accordion showing the Recipe Name, Meal Course and Cuisine. From there, they were able to click on the expand more icon to view a short recipe description and select the **View** button to access the full recipe. 
 
 #### Cooking novice
 The cooking novice was pleased to find a full list of ingredients and step-by-step intructions as to how to prepare the recipe when they navigated to view a recipe. They were also able to access the **Tips and Techniques** page from anywhere on the site using the link on the navbar and this provided them with some handy guides and videos to help improve their cooking skills. 
-The user was able to click on each Tip card to read the information and then click **Close** once finished. In the Technique section, the user was able to view the video by clicking the play icon. 
+The user was able to click on each Tip card to read the information on a pop out modal and then click **Close** once finished. In the Technique section, the user was able to view the video by clicking the play icon. 
 
 #### User with food intolerances
-The person with food intolerances achieved their desired outcome of filtering the recipe results by specifc dietry requirements as well as their preference for the type of meal course and cuisine. 
-They were able ot do this by navigating to the **Discover Recipes** page where they were presented with three dropdown select menus; **suitability**, **Meals & Courses** and **Cuisines** each displaying a list of options. The user was able to select an option from either one, two or all three menus before clicking the **filter** button to retrieve the list of results available. Equally, they were able to reset the filter menus to 'All' to return to the full collection. 
+The person with food intolerances achieved their desired outcome of filtering the recipe results by specifc dietry requirements as well as their preference for the type of meal course and cuisine by navigating to the **Discover Recipes** page. There, they were presented with three dropdown select menus; **Suitability**, **Meals & Courses** and **Cuisines** each displaying a list of options. The user was able to select an option from either one, two or all three menus before clicking the **filter** button to retrieve the list of results available. Equally, they were able to reset the filter menus to 'All' to return to the full collection. 
 
 #### User with a passion for cooking
 The user with a passion for homecooking, was able to add their own recipes to the collection for sharing with the Deeelish community. They were able to achieve this by clicking on either the **Add Recipe*** link from the menu or the **Share Recipe** card on the home page under the welcome message. This provided them with a simple form to input their recipe and a button to **Submit Recipe**. If the user tried to submit the recipe without key fields being complete, they received a prompt advising that the information was required. Having successfully submitted the recipe, the user received a confirmation message. 
@@ -178,11 +179,11 @@ This user was also pleased to find, having viewed the recipe and spotted an erro
 
 Similarly, having changed their mind about a particular recipe entry, they could click on the **Delete** button located at the end of the recipe. The user was provided with a confirmation message for each edit and delete action completed. 
 
-Additionally, this user was able to **View**, **Add**, **Edit** and **Delete** categories in both the Meals & Course and Cuisines collections by navigating to the **Browse Categories** link in the menu. There, they were presented with a button at the top to **Add New Category** followed by the results for both collections, each with the option to **Edit** or **Delete** by clicking on the expand icon. 
+Additionally, this user was able to **View**, **Add**, **Edit** and **Delete** categories in both the Meals & Course and Cuisines collections by navigating to the **Browse Categories** link in the menu. There, they were presented with a button at the top to **Add New Category** followed by the results for both collections, each with the option to **Edit** or **Delete** when the expand icon was clicked. 
 
 When they selected to add a new category, they were redirected to a form containing the collection names as subheadings, an input field below each for their entry and a button to **Add Category**. If successful, they received a confirmation message but when the category already existed in the database, they receive a message advising them so and the category was not added to the collection. 
 
-Similarly when they opted to edit a category they were taken to a short form with the collection heading, a pre-populated input field ready for editing and a **Save Changes** button to update the database. The user then received a confirmation message that the category had been updated and they were able to see their result in the category list as well as in the dropdown menus on the Discover Recipe, Add Recipe and Edit Recipe pages. 
+Similarly when they opted to edit a category they were taken to a short form with the collection heading, a pre-populated input field ready for editing and a **Save Changes** button to update the database. The user then received a confirmation message that the category had been updated and they were able to see their result on the Browse Category page as well as in the dropdown menus on the Discover Recipe, Add Recipe and Edit Recipe pages. 
 Users were also able to delete a category and observe the result in this way, but if they tried to delete a category that was already being used by a recipe, they recieved a message advising them so and the category was not deleted from the collection.   
 
 ### Multiple browsers and devices
@@ -203,7 +204,8 @@ A new app was created on the Heroku website by clicking the **New** button on da
 
 All code was then committed to a local Git repository using the `git add` and `git commit -m 'message'` commands. The code was then pushed to a remote [GitHub repository](https://github.com/Carly07/deeelish) using `git push -u origin master` before being deployed to Heroku using `git push heroku master`. 
 
-During development my environment variables (SECRET_KEYs and MONGDB_URIs) were stored in a seperate file (env.py) that was not pushed to my git repository so to prevent anyone (or any bot) from accessing and misusing the sensitive information. However, as heroku uses the GitHub repository code to build the app, it wouldn't have access to the environment variables and this would likely throw errors. So, for deployment, I gave heroku a copy of the environment variables; storing them in Key Value pairs under Reveal Config Vars in the Settings tab on my app dashboard. Similarly, during development, the debug attribute was set to true whilst for deployment it has been changed to false. 
+During development my environment variables (SECRET_KEYs and MONGDB_URIs) were stored in a seperate file (env.py) that was not pushed to my git repository so to prevent anyone (or any bot) from accessing and misusing the sensitive information. However, as heroku uses the GitHub repository code to build the app, it wouldn't have access to the environment variables and this would likely throw errors. 
+So, for deployment, I gave heroku a copy of the environment variables; storing them in Key Value pairs under Reveal Config Vars in the **Settings** tab on my app dashboard. Similarly, during development, the debug attribute was set to true whilst for deployment it has been changed to false. 
 
 ### To run the project locally
 To run the project locally in your own IDE, you must have Git, PIP and Python installed on your machine. You will also need to set up a MongoDB account [here](https://account.mongodb.com/account/login) and create a database called deeelish with three collections named recipes, meals_courses and cuisines. You will find example json structures for these collections under Information Architecture above. 

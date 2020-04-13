@@ -29,24 +29,24 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
                 <input id="recipe_description" name="recipe_description" type="text" class="materialize-textarea validate" required>
-                <label for="icon_telephone">Recipe Description</label>
+                <label for="recipe_description">Recipe Description</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s12 m6 l3"><i class="material-icons prefix">restaurant</i>
-                <select id="meals_courses" name="meal_course_type" class="validate" required>
+                <select id="meals_courses" name="meal_course_type" class="browser-default validate" required>
                     <option value="" disabled selected>Mealtimes & Courses</option>
                 {% for meals in meals_courses %}
-                    <option value="{{meals.meal_course_type}}">{{meals.meal_course_type}}</option>
+                    <option value="{{meals.meal_course_type}}">{{meals.meal_course_type.title()}}</option>
                 {% endfor %}
                 </select>
             </div>
             <div class="input-field col s12 m6 l3"><i class="material-icons prefix">fastfood</i>
-                <select id="cuisines" name="cuisine" class="validate" required>
+                <select id="cuisines" name="cuisine" class="browser-default validate" required>
                     <option value="" disabled selected>Cuisines</option>
                 {% for cuis in cuisines %}
-                    <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>
+                    <option value="{{cuis.cuisine}}">{{cuis.cuisine.title()}}</option>
                 {% endfor %}
                 </select>
             </div>

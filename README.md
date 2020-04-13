@@ -233,25 +233,22 @@ You should then be able to run the application with the command `python app.py`
 ## Credits
 
 ### Content
-•	All the recipes used within this site were sourced from [BBC Good Food](https://www.bbcgoodfood.com/). 
+* All the recipes used within this site were sourced from [BBC Good Food](https://www.bbcgoodfood.com/). 
 
-•	The text within the Tips section was taken from [BBC Good Food](https://www.bbcgoodfood.com/).
+* The text within the Tips section was taken from [BBC Good Food](https://www.bbcgoodfood.com/).
 
 ### Media
-•	The photographs used throughout this site were found on [Google Images](https://www.google.com/imghp?hl=en).
+* The photographs used throughout this site were found on [Google Images](https://www.google.com/imghp?hl=en).
 
-•	The videos contained within the Techniques Section were obtained from [YouTube](https://www.youtube.com/).
+* The videos contained within the Techniques Section were obtained from [YouTube](https://www.youtube.com/).
 
 ### Acknowledgements
 
-Small pieces of code have been copied from elsewhere, such as Materialize CSS. I have also made use of a number of websites in my pursuit to wire the all the functions necessary for this app, but particularly rticularly
+Small pieces of code have been copied from elsewhere, such as Materialize CSS. I have also made use of a number of websites in my pursuit to wire the all the functions necessary for this app, but particularly
 
 * [Stack Overlflow](https://stackoverflow.com/)
-
 * [W3School](https://www.w3schools.com/)
-
 * [tutorialspoint](https://www.tutorialspoint.com/flask/index.htm)
-
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 
 Finally a special thanks to my mentor, Antonio Rodriguez, the tutors at Code Institute and the Stack community for their help and advice with this project.

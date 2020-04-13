@@ -33,121 +33,121 @@
             </div>
         </div>
 
-				<div class="row">
-					<div class="input-field col s12 m6 l3">
-						<i class="material-icons prefix">restaurant</i>
-						<select id="meals_courses" name="meal_course_type">
-                    <option value="" disabled selected>Mealtimes and Courses</option>
-                    {% for meals in meals_courses %}
-                        {% if meals.meal_course_type == meal_course_type %}
-                        <option value="{{meal_course_type}}" selected >{{meal_course_type.title()}}</option>
-                        {% else %}
-                        <option value="{{meals.meal_course_type}}">{{meals.meal_course_type.title()}}</option>
-                    {% endif %}
-                    {% endfor %}
-                </select>
-					</div>
-					<div class="input-field col s12 m6 l3">
-						<i class="material-icons prefix">fastfood</i>
-						<select id="cuisines" name="cuisine">
-                    <option value="" disabled selected>Cuisines</option>
-                    {% for cuis in cuisines %}
-                        {% if cuis.cuisine == cuisine %}
-                        <option value="{{cuisine}}" selected >{{cuisine.title()}}</option>
-                        {% else %}
-                        <option value="{{cuis.cuisine}}">{{cuis.cuisine.title()}}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-					</div>
-					<div class="input-field col s12 m6 l3">
-						<i class="material-icons prefix">people_outline</i>
-						<input id="serves" name="serves" type="number" class="materialize-textarea" value="{{recipe.serves}}">
-						<label class="edit-label" for="serves">Serves</label>
-					</div>
-					<div class="input-field col s12 m6 l3">
-						<i class="material-icons prefix">access_time</i>
-						<input id="time" name="time" type="text" class="materialize-textarea" value="{{recipe.time}}">
-						<label for="time">Total Time</label>
-					</div>
-				</div>
+        <div class="row">
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">restaurant</i>
+                <select id="meals_courses" name="meal_course_type">
+            <option value="" disabled selected>Mealtimes and Courses</option>
+            {% for meals in meals_courses %}
+                {% if meals.meal_course_type == meal_course_type %}
+                <option value="{{meal_course_type}}" selected >{{meal_course_type.title()}}</option>
+                {% else %}
+                <option value="{{meals.meal_course_type}}">{{meals.meal_course_type.title()}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+            </div>
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">fastfood</i>
+                <select id="cuisines" name="cuisine">
+            <option value="" disabled selected>Cuisines</option>
+            {% for cuis in cuisines %}
+                {% if cuis.cuisine == cuisine %}
+                <option value="{{cuisine}}" selected >{{cuisine.title()}}</option>
+                {% else %}
+                <option value="{{cuis.cuisine}}">{{cuis.cuisine.title()}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+            </div>
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">people_outline</i>
+                <input id="serves" name="serves" type="number" class="materialize-textarea" value="{{recipe.serves}}">
+                <label class="edit-label" for="serves">Serves</label>
+            </div>
+            <div class="input-field col s12 m6 l3">
+                <i class="material-icons prefix">access_time</i>
+                <input id="time" name="time" type="text" class="materialize-textarea" value="{{recipe.time}}">
+                <label for="time">Total Time</label>
+            </div>
+        </div>
 
-				<div class="row">
-                    <div class="switch col s6 m6 l3">
-                        <label>
-                        
-                        {% if recipe.is_vegetarian %}
-                            <input id="is_vegetarian" name="is_vegetarian" type="checkbox" checked >
-                        {% else %}
-                            <input id="is_vegetarian" name="is_vegetarian" type="checkbox" >
-                        {% endif%}
-                            <span class="lever"></span>
-                            Vegetarian
-                        </label>
-                    </div>
-                    <div class="switch col s6 m6 l3">
-                        <label>
-                        
-                        {% if recipe.is_vegan %}
-                            <input id="is_vegan" name="is_vegan" type="checkbox" checked >
-                            {% else %}
-                            <input id="is_vegan" name="is_vegan" type="checkbox" >
-                            {% endif%}
-                            <span class="lever"></span>
-                            Vegan
-                        </label>
-                    </div>
-                    <div class="switch col s6 m6 l3">
-                        <label>
-                        
-                        {% if recipe.is_glutenFree %}
-                            <input id="is_glutenFree" name="is_glutenFree" type="checkbox" checked >
-                            {% else %}
-                            <input id="is_glutenFree" name="is_glutenFree" type="checkbox" >
-                            {% endif%}
-                            <span class="lever"></span>
-                            Gluten Free
-                        </label>
-                    </div>
-                    <div class="switch col s6 m6 l3">
-                        <label>
-                        
-                        {% if recipe.is_dairyFree %}
-                            <input id="is_dairyFree" name="is_dairyFree" type="checkbox" checked >
-                            {% else %}
-                            <input id="is_dairyFree" name="is_dairyFree" type="checkbox" >
-                            {% endif%}
-                            <span class="lever"></span>
-                            Dairy Free
-                        </label>
-                    </div> 
-				</div>
+        <div class="row">
+            <div class="switch col s6 m6 l3">
+                <label>
+                
+                {% if recipe.is_vegetarian %}
+                    <input id="is_vegetarian" name="is_vegetarian" type="checkbox" checked >
+                {% else %}
+                    <input id="is_vegetarian" name="is_vegetarian" type="checkbox" >
+                {% endif%}
+                    <span class="lever"></span>
+                    Vegetarian
+                </label>
+            </div>
+            <div class="switch col s6 m6 l3">
+                <label>
+                
+                {% if recipe.is_vegan %}
+                    <input id="is_vegan" name="is_vegan" type="checkbox" checked >
+                    {% else %}
+                    <input id="is_vegan" name="is_vegan" type="checkbox" >
+                    {% endif%}
+                    <span class="lever"></span>
+                    Vegan
+                </label>
+            </div>
+            <div class="switch col s6 m6 l3">
+                <label>
+                
+                {% if recipe.is_glutenFree %}
+                    <input id="is_glutenFree" name="is_glutenFree" type="checkbox" checked >
+                    {% else %}
+                    <input id="is_glutenFree" name="is_glutenFree" type="checkbox" >
+                    {% endif%}
+                    <span class="lever"></span>
+                    Gluten Free
+                </label>
+            </div>
+            <div class="switch col s6 m6 l3">
+                <label>
+                
+                {% if recipe.is_dairyFree %}
+                    <input id="is_dairyFree" name="is_dairyFree" type="checkbox" checked >
+                    {% else %}
+                    <input id="is_dairyFree" name="is_dairyFree" type="checkbox" >
+                    {% endif%}
+                    <span class="lever"></span>
+                    Dairy Free
+                </label>
+            </div> 
+        </div>
 
-				<div class="row">
-					<div class="input-field col s12">
-						<i class="material-icons prefix">add_shopping_cart</i>
-						<textarea id="add_ingredients" name="add_ingredients" type="text" class="materialize-textarea">{{recipe.add_ingredients}}</textarea>
-						<label for="add_ingredients">Ingredients</label>
-					</div>
-				</div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">add_shopping_cart</i>
+                <textarea id="add_ingredients" name="add_ingredients" type="text" class="materialize-textarea">{{recipe.add_ingredients}}</textarea>
+                <label for="add_ingredients">Ingredients</label>
+            </div>
+        </div>
 
-				<div class="row">
-					<div class="input-field col s12">
-						<i class="material-icons prefix">list</i>
-						<textarea id="method" name="method" type="text" class="materialize-textarea">{{recipe.method}}</textarea>
-						<label for="method">Method</label>
-					</div>
-				</div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">list</i>
+                <textarea id="method" name="method" type="text" class="materialize-textarea">{{recipe.method}}</textarea>
+                <label for="method">Method</label>
+            </div>
+        </div>
 
-				<div class="row">
-                    <button class="btn waves-effect waves-light right" type="submit" name="action">Save Changes
-                        <i class="material-icons right">playlist_add_check</i>
-                    </button>
-                </div>
-                <div class="row">    
-                    <a href="{{ url_for('get_recipes') }}" class="btn waves-effect waves-light right">Cancel<i class="material-icons right">cancel</i></a>
-				</div>
+        <div class="row">
+            <button class="btn waves-effect waves-light right" type="submit" name="action">Save Changes
+                <i class="material-icons right">playlist_add_check</i>
+            </button>
+        </div>
 	</form>
+    <div class="row">    
+        <button class="waves-effect waves-light right btn " onclick="history.back(-1)">Cancel<i class="material-icons right">cancel</i></button>
+	</div>
 </div>
 </div>
 

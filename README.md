@@ -244,13 +244,16 @@ You should then be able to run the application with the command `python app.py`
 
 ### Acknowledgements
 
-Small pieces of code have been copied from elsewhere, such as Materialize CSS. I have also made use of a number of websites in my pursuit to plumb and wire the all the functions necessary for this app, but particularly
+Small pieces of code have been copied from elsewhere, such as Materialize CSS. I have also made use of a number of websites in my pursuit to wire the all the functions necessary for this app, but particularlyrticularly
 
 [Stack Overlflow](https://stackoverflow.com/)
+
 [W3School](https://www.w3schools.com/)
+
 [tutorialspoint](https://www.tutorialspoint.com/flask/index.htm)
+
 [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 
-Special thanks to my mentor, Antonio Rodriguez, and the tutors at Code Institute for their help and advice with this project.
+Finally a special thanks to my mentor, Antonio Rodriguez, the tutors at Code Institute and the Stack community for their help and advice with this project.
 
 **This is for educational use.** 

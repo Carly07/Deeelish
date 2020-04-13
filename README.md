@@ -68,68 +68,45 @@ Materialize Footer has been used to provide the user with social medial links an
 
 
 ### Features Left to Implement
-•	User registration and authentication so that users are only able to edit and delete recipes and categories that they have added. I would also like them to be able to bookmark / save recipes that they are interested in.
-
-•	A Search Box facility on the Discover Recipes page to enable users to search for a specific recipe, ingredient or keyword. 
-
-•	Develop the Tips and Techniques page to include more content. 
+* User registration and authentication so that users are only able to edit and delete recipes and categories that they have added. I would also like them to be able to bookmark / save recipes that they are interested in.
+* A Search Box facility on the Discover Recipes page to enable users to search for a specific recipe, ingredient or keyword. 
+* Develop the Tips and Techniques page to include more content. 
 
 
 ## Technologies
 All the languages, frameworks, libraries, and tools used to construct this project are listed below. I have also provided a relevant link and a brief overview of its usage.
 
 ### Languages
-
-•	<a target="_blank" href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> – Used to write customised front-end content for the application.
-
-•	<a target="_blank" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS3</a> – Used to customise the style of the web application. 
-
-•	<a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> - Used to add an onclick event to my cancel and return buttons within the application.
-
-•	<a target="_blank" href="https://www.python.org/">Python</a> - Used to build the back-end functionality.
+* <a target="_blank" href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> – Used to write customised front-end content for the application.
+* <a target="_blank" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS3</a> – Used to customise the style of the web application. 
+* <a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> - Used to add an onclick event to my cancel and return buttons within the application.
+* <a target="_blank" href="https://www.python.org/">Python</a> - Used to build the back-end functionality.
 
 
 ### Frameworks
-
-•	<a target="_blank" href="http://archives.materializecss.com/0.100.2/">Materialize CSS v.0.100.2</a> - A framework used to create the responsive grid system and various components within the site including the navbar, select menus, accordion, cards, modals and carousels. 
-
-•	<a target="_blank" href="https://en.wikipedia.org/wiki/Flask_(web_framework)">Flask</a> - A python microframework used to construct and render pages within the application quickly and easily.
+* <a target="_blank" href="http://archives.materializecss.com/0.100.2/">Materialize CSS v.0.100.2</a> - A framework used to create the responsive grid system and various components within the site including the navbar, select menus, accordion, cards, modals and carousels. 
+* <a target="_blank" href="https://en.wikipedia.org/wiki/Flask_(web_framework)">Flask</a> - A python microframework used to construct and render pages within the application quickly and easily.
 
 
 ### Libraries
-
-•	<a target="_blank" href="https://jquery.com/">jQuery</a> - A JavaScript library used here to simplify DOM manipulation when initializing specific Materialize components within the application e.g. carousel, modal, accordion etc.
-
-•	<a target="_blank" href="https://fonts.google.com/">Google Fonts</a> – The font used was obtained from Google Fonts.
-
-•	<a target="_blank" href="https://fontawesome.com/">Font Awesome</a> - The Social Media icons used within the footer were sourced from Font Awesome.
-
-•	<a target="_blank" href="https://material.io/resources/icons/?style=baseline">Material Icons</a> - All other icons used within the web application were sourced from Material Icons.
-
-•	<a target="_blank" href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja</a> - A templating language used to simplify the displaying of back-end data in a HTML markup format that is returned to the user via an HTTP response.
-
-•	<a target="_blank" href="https://api.mongodb.com/python/current/api/pymongo/index.html#module-pymongo">PyMongo</a> - A driver used to access the MongoDB database from Python and make communication between the two possible.
+* <a target="_blank" href="https://jquery.com/">jQuery</a> - A JavaScript library used here to simplify DOM manipulation when initializing specific Materialize components within the application e.g. carousel, modal, accordion etc.
+* <a target="_blank" href="https://fonts.google.com/">Google Fonts</a> – The font used was obtained from Google Fonts.
+* <a target="_blank" href="https://fontawesome.com/">Font Awesome</a> - The Social Media icons used within the footer were sourced from Font Awesome.
+* <a target="_blank" href="https://material.io/resources/icons/?style=baseline">Material Icons</a> - All other icons used within the web application were sourced from Material Icons.
+* <a target="_blank" href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja</a> - A templating language used to simplify the displaying of back-end data in a HTML markup format that is returned to the user via an HTTP response.
+* <a target="_blank" href="https://api.mongodb.com/python/current/api/pymongo/index.html#module-pymongo">PyMongo</a> - A driver used to access the MongoDB database from Python and make communication between the two possible.
 
 
 ### Tools 
-
-•	<a target="_blank" href="https://www.gitpod.io/">GitPod</a> – The online Integrated Development Environment (IDE) used for the development of this project.
-
-•	<a target="_blank" href="https://account.mongodb.com/">MongoDB</a> - A NoSQL database used for storing the user data in JSON-like documents.
-
-•   <a target="_blank" href="https://www.google.co.uk/chrome/">Google Chrome</a> - This browser and its' developer tools were used throughout the development of the app. 
-
-•   <a target="_blank" href="https://www.google.co.uk/chrome/">Responsinator</a> - Website used to test responsiveness on different devices. 
-
-•	<a target="_blank" href="https://github.com/">Git</a> – Used for version control
-
-•	<a target="_blank" href="https://github.com/">GitHub</a> – GitHub was used for hosting my repository
-
-•	<a target="_blank" href="https://github.com/">Heroku</a> – A cloud platform used for deployment
-
-•	<a target="_blank" href="https://validator.w3.org/">W3c Markup Validation Service</a> - The HTML code for this project was checked and validated by the W3c Markup Validation Service
-
-•	<a target="_blank" href="https://jigsaw.w3.org/css-validator/">W3c CSS Validation Service</a> - The CSS code for this project was checked and validated by the W3c CSS Validation Service
+* <a target="_blank" href="https://www.gitpod.io/">GitPod</a> – The online Integrated Development Environment (IDE) used for the development of this project.
+* <a target="_blank" href="https://account.mongodb.com/">MongoDB</a> - A NoSQL database used for storing the user data in JSON-like documents.
+* <a target="_blank" href="https://www.google.co.uk/chrome/">Google Chrome</a> - This browser and its' developer tools were used throughout the development of the app. 
+* <a target="_blank" href="https://www.google.co.uk/chrome/">Responsinator</a> - Website used to test responsiveness on different devices. 
+* <a target="_blank" href="https://github.com/">Git</a> – Used for version control
+* <a target="_blank" href="https://github.com/">GitHub</a> – GitHub was used for hosting my repository
+* <a target="_blank" href="https://github.com/">Heroku</a> – A cloud platform used for deployment
+* <a target="_blank" href="https://validator.w3.org/">W3c Markup Validation Service</a> - The HTML code for this project was checked and validated by the W3c Markup Validation Service
+* <a target="_blank" href="https://jigsaw.w3.org/css-validator/">W3c CSS Validation Service</a> - The CSS code for this project was checked and validated by the W3c CSS Validation Service
 
 
 ## Information Architecture
@@ -234,12 +211,10 @@ You should then be able to run the application with the command `python app.py`
 
 ### Content
 * All the recipes used within this site were sourced from [BBC Good Food](https://www.bbcgoodfood.com/). 
-
 * The text within the Tips section was taken from [BBC Good Food](https://www.bbcgoodfood.com/).
 
 ### Media
 * The photographs used throughout this site were found on [Google Images](https://www.google.com/imghp?hl=en).
-
 * The videos contained within the Techniques Section were obtained from [YouTube](https://www.youtube.com/).
 
 ### Acknowledgements

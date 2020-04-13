@@ -35,7 +35,7 @@
 
         <div class="row">
             <div class="input-field col s12 m6 l3"><i class="material-icons prefix">restaurant</i>
-                <select id="meals_courses" name="meal_course_type">
+                <select id="meals_courses" name="meal_course_type" class="validate" required>
                     <option value="" disabled selected>Mealtimes & Courses</option>
                 {% for meals in meals_courses %}
                     <option value="{{meals.meal_course_type}}">{{meals.meal_course_type}}</option>
@@ -43,7 +43,7 @@
                 </select>
             </div>
             <div class="input-field col s12 m6 l3"><i class="material-icons prefix">fastfood</i>
-                <select id="cuisines" name="cuisine">
+                <select id="cuisines" name="cuisine" class="validate" required>
                     <option value="" disabled selected>Cuisines</option>
                 {% for cuis in cuisines %}
                     <option value="{{cuis.cuisine}}">{{cuis.cuisine}}</option>

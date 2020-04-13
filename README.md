@@ -2,7 +2,7 @@
 
 Deeelish is a web application, designed by me, Carly Clark, to satisfy the requirements of the "Data Centric Development" milestone project on the Code Institute Full-Stack Software Development course.
 
-It is intended to be an online community resource primarily for searching and sharing recipes, though users can also create and remove categories fromt he collections and view cooking tips and techniques. 
+It is intended to be an online community resource primarily for searching and sharing recipes, though users can also create and remove categories from the collections as well as view cooking tips and techniques. 
 
 
 ## Demo
@@ -11,7 +11,7 @@ A live demo can be found [here](https://deeelish.herokuapp.com/).
 
 ## UX
 
-### User stories
+### User Stories
 
 As the cook of the household, I am looking for recipe inspiration for our next family dinner and would like to be able to quickly search a collection of recipes and view the recipe details. 
 
@@ -49,7 +49,7 @@ A fixed Navbar with 2 dropdown menus has been implemented on larger devices whil
 The featured 'Seasonal' recipe imagery is displayed using a touch enabled carousel offering the users recipe inspiration. Users can click on the image to be redirected to the relevant recipe. 
 
 #### Filter Function
-A form at the top of the Discover Recipes page offers users three dropdown menus displaying categories to select from in order to filter their recipe results. The Meals & Courses Category and the Cuisines Category have been populated dynamically so they remain consistant with any changes that have been made tot he database. 
+A form at the top of the Discover Recipes page offers users three collections, each with dropdown menus displaying categories to select from in order to filter their recipe results. The Meals & Courses Collection and the Cuisines Collection have been populated dynamically so they remain consistant with any changes that have been made to individual categories in the database. 
 
 #### Discover Recipe and Browse Category Pages
 The Discover Recipe and Browse Category results are presented in an accordion displaying only basic details and hiding additional information that's not immediately relevant. Where users are interested in a particular recipe or category, they can expand the result to reveal more information and or other options available to them such as View, Edit and Delete. 
@@ -58,7 +58,7 @@ The Discover Recipe and Browse Category results are presented in an accordion di
 Materialzie Forms incoroparting input fields, text-areas, select menus and switches, have been used to receive user inputted data when adding or editing a recipe or category. The forms have sensible defaults for fields which are required or optional. 
 
 #### Flash Messages
-Flash messages have been implemented to provide feedback to the user when adding, editing or deleting from the database. Users will recive confirmation of their action or else be notified that either the category already exists when trying to add a new entry or that they cannot delete a category that is currently in use. 
+Flash messages have been implemented to provide feedback to the user when adding, editing or deleting from the database. Users will recive confirmation of successful action or else be notified that either the category already exists when trying to add a new entry or that they cannot delete a category that is currently in use. 
 
 #### Tips Section
 Cards with a hoverable class are used to navigate users to three handy tips. If users are interested in a particular tip, they can click on the card title to open a modal displaying the information to the user. 
@@ -68,7 +68,11 @@ Materialize Footer has been used to provide the user with social medial links an
 
 
 ### Features Left to Implement
-In the future, I would like to add user registration and authentication to the site. I would also like to add a Search box facility on the Discover Recipes page to enable users to search for a specific recipe.
+•	User registration and authentication so that users are only able to edit and delete recipes and categories that they have added. I would also like them to be able to bookmark / save recipes that they are interested in.
+
+•	A Search Box facility on the Discover Recipes page to enable users to search for a specific recipe, ingredient or keyword. 
+
+•	Develop the Tips and Techniques page to include more content. 
 
 
 ## Technologies
@@ -76,14 +80,16 @@ All the languages, frameworks, libraries, and tools used to construct this proje
 
 ### Languages
 
-•	<a target="_blank" href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> – Markup language used to write customised front-end content for the application.
+•	<a target="_blank" href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> – Used to write customised front-end content for the application.
 
 •	<a target="_blank" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS3</a> – Used to customise the style of the web application. 
 
-•	<a target="_blank" href="https://www.python.org/">Python</a> - High-level programming language used to build back-end functionality.
+•	<a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> - Used to add an onclick event to my cancel and return buttons within the application
+
+•	<a target="_blank" href="https://www.python.org/">Python</a> - Used to build the back-end functionality.
 
 
-### Framework
+### Frameworks
 
 •	<a target="_blank" href="http://archives.materializecss.com/0.100.2/">Materialize CSS v.0.100.2</a> - A framework used to create the responsive grid system and various components within the site including the navbar, select menus, accordion, cards, modals and carousels. 
 
@@ -115,7 +121,7 @@ All the languages, frameworks, libraries, and tools used to construct this proje
 
 •   <a target="_blank" href="https://www.google.co.uk/chrome/">Responsinator</a> - Website used to test responsiveness on different devices. 
 
-•	<a target="_blank" href="https://github.com/">Git</a> – A command-line tool, used for version control
+•	<a target="_blank" href="https://github.com/">Git</a> – Used for version control
 
 •	<a target="_blank" href="https://github.com/">GitHub</a> – GitHub was used for hosting my repository
 
@@ -140,7 +146,7 @@ The types of data stored in MongoDB for this project are:
 
 ### Collections Data Structure
 
-The deeelish project relies on three collections, recipes, meals_courses and cuisines. Examples of documents from each can be found below.
+The deeelish project relies on three collections; recipes, meals_courses and cuisines. Examples of documents from each can be found below.
 
 #### Recipes
 ![recipes](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/recipescollection.png)
@@ -151,14 +157,21 @@ The deeelish project relies on three collections, recipes, meals_courses and cui
 #### Cuisines
 ![cuisines](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/cuisinescollection.png)
 
-The ObjectId from the selected meals_courses and cuisines category collection are retrieved and stored as the meal_course_type and cuisine values within the recipe document in the recipes collection. This creates a relationship between the collections which means that if a particular category within either the meals_courses or cuisine collections is updated it will reflect the change in all the recipe documents associated with that category.
+As can be seen above, the ObjectId from the specified meals_courses and cuisines category collection are retrieved and stored as the value for meal_course_type and cuisine within the recipe document in the recipes collection. This creates a relationship between the collections which means that if a particular category within either the meals_courses or cuisine collections is updated it will reflect the change in all the recipe documents associated with that category.
+
+All category names are stored in lowercase within the Meals_course and cuisines collections so assist when checking for duplications. However, I have applied the `.title()` method when displaying categories within the application to improve user experience. 
+
+Values for the Vegetarian, Vegan, Gluten Free and Dairy Free switches are converted to Boolean values for storing in the database. This helped with the filter functionality on the Discover Recipes page. 
 
 ## Testing
 ### Developer tools
 
-GitPod's preview, google chrome developer tools and responsinator were utilised throughout the development of the project to identify and successfully address any bugs, errors or style issues affecting UX on various screen resolutions. W3c Markup and CSS Validation Services were also used to check the validity of my HTML and CSS code. 
+GitPod's preview, google chrome developer tools and responsinator were utilised throughout the development of the project to identify and successfully address any bugs, errors or style issues affecting UX on various screen resolutions. 
 
-**NB.** the W3c validator throws errors in the HTML files the Jinja templating syntax is found. 
+### Automated Testing
+W3c Markup and CSS Validation Services were also used to check the validity of my HTML and CSS code.  **NB.** the W3c validator throws errors in the HTML files the Jinja templating syntax is found. 
+
+JSHint was used to validate JavaScript.
 
 ### User scenarios
 

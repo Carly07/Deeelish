@@ -212,6 +212,10 @@ ul.dropdown-content.select-dropdown li span {
      background-color: #fdd835;
 }
 
+.select-wrapper span.caret {
+    bottom: auto;
+}
+
 .lever {
     margin-left: 0px !important;
 }

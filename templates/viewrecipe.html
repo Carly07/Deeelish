@@ -82,7 +82,7 @@
     <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light right btn">Edit<i class="material-icons right">create</i></a>
 </div>
 <div class="row">
-    <a href="{{ url_for('get_recipes') }}" class="waves-effect waves-light right btn ">Return<i class="material-icons right">keyboard_return</i></a>
+    <button class="waves-effect waves-light right btn " onclick="history.back(-1)">Return<i class="material-icons right">keyboard_return</i></button>
 </div>
 </div>
 {% endblock %}

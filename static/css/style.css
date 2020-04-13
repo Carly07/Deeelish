@@ -252,9 +252,6 @@ select:focus {
     background: #fdd835 !important;
 }
 
-.input-field {
-    height: 64.5px;
-}
 
 .input-field .prefix.active {
     color: #fdd835 !important;

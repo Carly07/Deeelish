@@ -2,7 +2,7 @@
 
 Deeelish is a web application, designed by me, Carly Clark, to satisfy the requirements of the "Data Centric Development" milestone project on the Code Institute Full-Stack Software Development course.
 
-It is intended to be an online community resource primarily for searching and sharing recipes, though users can also create and remove categories from the collections as well as view cooking tips and techniques. 
+It is intended to be an online community resource primarily for searching and sharing recipes, though users can also create, edit and remove categories from the collections as well as view cooking tips and techniques. 
 
 
 ## Demo
@@ -58,7 +58,7 @@ The Discover Recipe and Browse Category results are presented in an accordion di
 Materialzie Forms incoroparting input fields, text-areas, select menus and switches, have been used to receive user inputted data when adding or editing a recipe or category. The forms have sensible defaults for fields which are required or optional. 
 
 #### Flash Messages
-Flash messages have been implemented to provide feedback to the user when adding, editing or deleting from the database. Users will recive confirmation of successful action or else be notified that either the category already exists when trying to add a new entry or that they cannot delete a category that is currently in use. 
+Flash messages have been implemented to provide feedback to the user when adding, editing or deleting from the database. Users will recive confirmation of a successful action or else be notified that either the category already exists when trying to add a new entry or that they cannot delete a category that is currently in use. 
 
 #### Tips Section
 Cards with a hoverable class are used to navigate users to three handy tips. If users are interested in a particular tip, they can click on the card title to open a modal displaying the information to the user. 
@@ -84,7 +84,7 @@ All the languages, frameworks, libraries, and tools used to construct this proje
 
 •	<a target="_blank" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS3</a> – Used to customise the style of the web application. 
 
-•	<a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> - Used to add an onclick event to my cancel and return buttons within the application
+•	<a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> - Used to add an onclick event to my cancel and return buttons within the application.
 
 •	<a target="_blank" href="https://www.python.org/">Python</a> - Used to build the back-end functionality.
 
@@ -127,7 +127,9 @@ All the languages, frameworks, libraries, and tools used to construct this proje
 
 •	<a target="_blank" href="https://github.com/">Heroku</a> – A cloud platform used for deployment
 
-•	<a target="_blank" href="https://validator.w3.org/">W3C Markup Validation Service</a> - The HTML and CSS code for this project was checked and validated by the W3C Markup Validation Service
+•	<a target="_blank" href="https://validator.w3.org/">W3c Markup Validation Service</a> - The HTML code for this project was checked and validated by the W3c Markup Validation Service
+
+•	<a target="_blank" href="https://jigsaw.w3.org/css-validator/">W3c CSS Validation Service</a> - The CSS code for this project was checked and validated by the W3c CSS Validation Service
 
 
 ## Information Architecture
@@ -157,11 +159,11 @@ The deeelish project relies on three collections; recipes, meals_courses and cui
 #### Cuisines
 ![cuisines](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/cuisinescollection.png)
 
-As can be seen above, the ObjectId from the specified meals_courses and cuisines category collection are retrieved and stored as the value for meal_course_type and cuisine within the recipe document in the recipes collection. This creates a relationship between the collections which means that if a particular category within either the meals_courses or cuisine collections is updated it will reflect the change in all the recipe documents associated with that category.
+As can be seen above, the `ObjectId` from the specified meals_courses and cuisines category are retrieved and stored as the value for meal_course_type and cuisine within the recipe document in the recipes collection. This creates a relationship between the collections which means that if a particular category within either the meals_courses or cuisine collections is updated it will reflect the change in all the recipe documents associated with that category.
 
-All category names are stored in lowercase within the Meals_course and cuisines collections so assist when checking for duplications. However, I have applied the `.title()` method when displaying categories within the application to improve user experience. 
+All category names are stored in lowercase within the meals_course and cuisines collections so to assist when checking for duplications. I have however, applied the `.title()` method when displaying the category names within the application to improve user experience. 
 
-Values for the Vegetarian, Vegan, Gluten Free and Dairy Free switches are converted to Boolean values for storing in the database. This helped with the filter functionality on the Discover Recipes page. 
+Values for the Vegetarian, Vegan, Gluten Free and Dairy Free switches are converted to `Boolean` values for storing in the database. This helped with the filter functionality on the Discover Recipes page. 
 
 ## Testing
 ### Developer tools
@@ -170,8 +172,6 @@ GitPod's preview, google chrome developer tools and responsinator were utilised 
 
 ### Automated Testing
 W3c Markup and CSS Validation Services were also used to check the validity of my HTML and CSS code.  **NB.** the W3c validator throws errors in the HTML files the Jinja templating syntax is found. 
-
-JSHint was used to validate JavaScript.
 
 ### User scenarios
 
@@ -186,7 +186,7 @@ The user was able to click on each Tip card to read the information on a pop out
 The person with food intolerances achieved their desired outcome of filtering the recipe results by specifc dietry requirements as well as their preference for the type of meal course and cuisine by navigating to the **Discover Recipes** page. There, they were presented with three dropdown select menus; **Suitability**, **Meals & Courses** and **Cuisines** each displaying a list of options. The user was able to select an option from either one, two or all three menus before clicking the **filter** button to retrieve the list of results available. Equally, they were able to reset the filter menus to 'All' to return to the full collection. 
 
 #### User with a passion for cooking
-The user with a passion for homecooking, was able to add their own recipes to the collection for sharing with the Deeelish community. They were able to achieve this by clicking on either the **Add Recipe*** link from the menu or the **Share Recipe** card on the home page under the welcome message. This provided them with a simple form to input their recipe and a button to **Submit Recipe**. If the user tried to submit the recipe without key fields being complete, they received a prompt advising that the information was required. Having successfully submitted the recipe, the user received a confirmation message. 
+The user with a passion for homecooking, was able to add their own recipes to the collection for sharing with the Deeelish community. They were able to achieve this by clicking on either the **Add Recipe** link from the menu or the **Share Recipe** card on the home page under the welcome message. This provided them with a simple form to input their recipe and a button to **Submit Recipe**. If the user tried to submit the recipe without key fields being complete, they received a prompt advising that the information was required. Having successfully submitted the recipe, the user received a confirmation message. 
 
 This user was also pleased to find, having viewed the recipe and spotted an error, that they were able to edit the recipe by clicking on the **Edit** button at the end of the recipe. This presented them with a pre-populated form similar to the Add Recipe page. The user was able to update the required fields and click **Save Changes** to update the recipe. 
 
@@ -201,7 +201,9 @@ Users were also able to delete a category and observe the result in this way, bu
 
 ### Multiple browsers and devices
 
-After the site was deployed, I tested it across four browsers (Chrome, Safari, Internet Explorer, FireFox) and on multiple devices (Samsung Galaxy J3, iPhone 7 Plus, 8, iPad 6, iPad Air, MacBook Air and iMac) as well as on Responsinator to ensure compatibility and responsiveness. Whilst testing, I noticed that the parallax images were not displaying correctly on my iphone. Having researched the problem, I found that using a media query to adjust the height fixed the issue. I also found that...
+After the site was deployed, I tested it across four browsers (Chrome, Safari, Internet Explorer, FireFox) and on multiple devices (Samsung Galaxy J3, iPhone 7 Plus, 8, iPad 6, iPad Air, MacBook Air and iMac) as well as on Responsinator to ensure compatibility and responsiveness. 
+
+Whilst testing, I noticed that the parallax images were not displaying correctly on my iphone. Having researched the problem, I found that using a media query to adjust the height fixed the issue. I also found that the required attribute did not work with on the Select dropdown menus. Having searched the internet, I quickly realised that Materialise does not cater for the required attribute. I tried several work-arounds did not get the desired finish and so I decided to change the select menus to the browser-default.
 
 
 ## Deployment
@@ -241,6 +243,16 @@ You should then be able to run the application with the command `python app.py`
 •	The videos contained within the Techniques Section were obtained from [YouTube](https://www.youtube.com/).
 
 ### Acknowledgements
+
+Small pieces of code have been copied from elsewhere, such as Materialize CSS. I have also made use of a number of websites in my pursuit to plumb and wire the all the functions necessary for this app, but particularly
+
+[Stack Overlflow](https://stackoverflow.com/)
+
+[W3School](https://www.w3schools.com/)
+
+[tutorialspoint](https://www.tutorialspoint.com/flask/index.htm)
+
+[Flask](https://flask.palletsprojects.com/en/1.1.x/)
 
 Special thanks to my mentor, Antonio Rodriguez, and the tutors at Code Institute for their help and advice with this project.
 

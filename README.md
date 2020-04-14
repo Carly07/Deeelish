@@ -32,7 +32,7 @@ I wanted users to feel welcome, to understand the purpose of the site and to be 
 My hope was to present information to the users in a logical format that provides easy access to the information they require. With this in mind, users are welcomed to the site landing page with a brief overview of the purpose and some featured 'seasonal' recipe imagery to inspire them. From there, users can easily navigate to 5 other areas of the site; Discover Recipes, Add Recipe, Browse Categories, Add Category and Tips & Techniques. On the Discover Recipe and Browse Categories pages, users can choose to expand a particular result to view more detail or access options including view, edit and delete. Hiding these options until required is is intended to promote a minimalist design. 
 
 ### Skeleton
-The basic wireframes for this site can be found [here](https://github.com/Carly07/deeelish/static/wireframes/)
+The basic wireframes for this site can be found [here](https://github.com/Carly07/deeelish/static/images/wireframes)
 
 ### Surface
 The grey and yellow color scheme was chosen to create a bright, modern feel. Colourful images of fresh produce, cooked meals and home bakes are used to appeal to the users senses.
@@ -128,13 +128,13 @@ The types of data stored in MongoDB for this project are:
 The deeelish project relies on three collections; recipes, meals_courses and cuisines. Examples of documents from each can be found below.
 
 #### Recipes
-![recipes](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/recipescollection.png)
+![recipes](https://github.com/Carly07/deeelish/blob/master/static/images/recipescollection.png)
 
 #### Meals and Courses
-![meals_courses](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/meals_coursescollection.png)
+![meals_courses](https://github.com/Carly07/deeelish/blob/master/static/images/meals_coursescollection.png)
 
 #### Cuisines
-![cuisines](https://github.com/Carly07/deeelish/blob/master/static/images/mongodb/cuisinescollection.png)
+![cuisines](https://github.com/Carly07/deeelish/blob/master/static/images/cuisinescollection.png)
 
 As can be seen above, the `ObjectId` from the specified meals_courses and cuisines category are retrieved and stored as the value for meal_course_type and cuisine within the recipe document in the recipes collection. This creates a relationship between the collections which means that if a particular category within either the meals_courses or cuisine collections is updated it will reflect the change in all the recipe documents associated with that category.
 

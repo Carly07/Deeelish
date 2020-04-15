@@ -5,6 +5,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="cooking, food, recipes, homecooking, ingredients, deeelish" />
+    <meta name="description" content="Deeelish">
+    <meta name="author" content="Carly Clark">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -119,20 +122,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	<script>
-		$(document).ready(function(){
-            $(".dropdown-button").dropdown();
-            $(".button-collapse").sideNav();
-            $('.parallax').parallax();
-            $('.carousel').carousel();
-            $('.collapsible').collapsible();
-            $('.modal').modal();
-            $('select').material_select();
-        });
-	</script>
-    
+    <script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
 
-{% block script %} {% endblock %}
 
 </body>
 

@@ -91,6 +91,7 @@ Materialize Footer has been used to provide the user with social medial links an
 ### Features Left to Implement
 * User registration and authentication so that users are only able to edit and delete recipes and categories that they have added. I would also like them to be able to bookmark / save recipes that they are interested in.
 * A Search Box facility on the Discover Recipes page to enable users to search for a specific recipe, ingredient or keyword. 
+* An upload file facility on the Add Recipe page to enable users to add a recipe photograph rather than a URL. 
 * Develop the Tips and Techniques page to include more content. 
 
 
@@ -181,7 +182,7 @@ The cooking novice was pleased to find a full list of ingredients and step-by-st
 The user was able to click on each Tip card to read the information on a pop out modal and then click **Close** once finished. In the Technique section, the user was able to view the video by clicking the play icon. 
 
 #### User with food intolerances
-The person with food intolerances achieved their desired outcome of filtering the recipe results by specifc dietry requirements as well as their preference for the type of meal course and cuisine by navigating to the **Discover Recipes** page. There, they were presented with three dropdown select menus; **Suitability**, **Meals & Courses** and **Cuisines** each displaying a list of options. The user was able to select an option from either one, two or all three menus before clicking the **filter** button to retrieve the list of results available. Equally, they were able to reset the filter menus to 'All' to return to the full collection. 
+The person with food intolerances achieved their desired outcome of filtering the recipe results by specifc dietry requirements as well as their preference for the type of meal course and cuisine by navigating to the **Discover Recipes** page. There, they were presented with three dropdown select menus; **Suitability**, **Meals & Courses** and **Cuisines** each displaying a list of options. The user was able to select an option from either one, two or all three menus before clicking the **filter** button to retrieve the list of results available. Equally, they were able to retrieve the full collection of receipes by setting all 3 menus to 'All' and clicking the filter button again.
 
 #### User with a passion for cooking
 The user with a passion for homecooking, was able to add their own recipes to the collection for sharing with the Deeelish community. They were able to achieve this by clicking on either the **Add Recipe** link from the menu or the **Share Recipe** card on the home page under the welcome message. This provided them with a simple form to input their recipe and a button to **Submit Recipe**. If the user tried to submit the recipe without key fields being complete, they received a prompt advising that the information was required. Having successfully submitted the recipe, the user received a confirmation message. 
@@ -201,7 +202,7 @@ Users were also able to delete a category and observe the result in this way, bu
 
 After the site was deployed, I tested it across four browsers (Chrome, Safari, Internet Explorer, FireFox) and on multiple devices (Samsung Galaxy J3, iPhone 7 Plus, 8, iPad 6, iPad Air, MacBook Air and iMac) as well as on Responsinator to ensure compatibility and responsiveness. 
 
-Whilst testing, I noticed that the parallax images were not displaying correctly on my iphone. Having researched the problem, I found that using a media query to adjust the height fixed the issue. I also found that the required attribute did not work with on the Select dropdown menus. Having searched the internet, I quickly realised that Materialise does not cater for the required attribute. I tried several work-arounds did not get the desired finish and so I decided to change the select menus to the browser-default.
+Whilst testing, I noticed that the parallax images were not displaying correctly on my iphone. Having researched the problem, I found that using a media query to adjust the height fixed the issue. I also found that the required attribute did not work with on the Select dropdown menus. Having searched the internet, I quickly realised that Materialise does not cater for the required attribute. I tried several work-arounds but did not get the desired finish I was after so I decided to change the select menus to the browser-default.
 
 
 ## Deployment
